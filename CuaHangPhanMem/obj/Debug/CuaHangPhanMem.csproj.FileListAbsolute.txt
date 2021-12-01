@@ -1,0 +1,198 @@
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.exe.config
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.exe
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.pdb
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csprojAssemblyReference.cache
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.Properties.Resources.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.GenerateResource.cache
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.CoreCompileInputs.cache
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.exe
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.pdb
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.LOGIN.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.BanHang.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\bin\Debug\FontAwesome.Sharp.dll
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.CopyComplete
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmBanHang.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmTaiChinh.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frKhachHang.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmSanPham.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmLoaiSP.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmTimKiemDonHang.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.fromHome.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmAccount.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmInfoApp.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.BanHangStaff.resources
+D:\CNPM\Final Project\CuaHangPhanMem\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmThongKeSP.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.exe.config
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.exe
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.pdb
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csprojAssemblyReference.cache
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.BanHangStaff.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frKhachHang.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmAccount.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmBanHang.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmInfoApp.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmLoaiSP.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmSanPham.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmTaiChinh.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmThongKeSP.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmTimKiemDonHang.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.fromHome.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.LOGIN.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.BanHang.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.Properties.Resources.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.GenerateResource.cache
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.CoreCompileInputs.cache
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.CopyComplete
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.exe
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.pdb
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\EnvDTE.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\stdole.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\Microsoft.MSXML.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmReportBill.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\RdlCompile.cache
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\RdlCompile.compiled
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmReportDoanhthu.resources
+C:\Users\Drom\Downloads\kkkkkssssaaa-main\kkkkkssssaaa-main\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmReportSanpham.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.exe.config
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.exe
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\CuaHangPhanMem.pdb
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\FontAwesome.Sharp.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.Design.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\EnvDTE.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\stdole.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\Microsoft.MSXML.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.BanHangStaff.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frKhachHang.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmAccount.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmBanHang.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmInfoApp.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmLoaiSP.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmReportBill.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmReportDoanhthu.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmReportSanpham.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmSanPham.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmTaiChinh.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmThongKeSP.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmTimKiemDonHang.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.fromHome.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.BanHang.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.Properties.Resources.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.GenerateResource.cache
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.CoreCompileInputs.cache
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.CopyComplete
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.exe
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.pdb
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.AssemblyReference.cache
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.LOGIN.resources
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\RdlCompile.cache
+D:\CNPM\Final Project\Nhom24-25\source code\CuaHangPhanMem\obj\Debug\RdlCompile.compiled
