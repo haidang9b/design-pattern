@@ -13,9 +13,9 @@ namespace CuaHangPhanMem.DTO
         private string name;
         private string phone;
         private string add;
-        private string totalmoney;
+        private int totalmoney;
 
-        public Customer(int id, string name,string phone, string add, string totalMoney)
+        public Customer(int id, string name,string phone, string add, int totalMoney)
         {
             this.id = id;
             this.name = name;
@@ -29,12 +29,12 @@ namespace CuaHangPhanMem.DTO
             this.name = row["TENKH"].ToString();
             this.phone = row["SDTKH"].ToString();
             this.add = row["DIACHI"].ToString();
-            this.totalmoney = row["TONGTIEN"].ToString();
+            this.totalmoney = (int)row["TONGTIEN"];
         }
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Phone { get => phone; set => phone = value; }
         public string Add { get => add; set => add = value; }
-        public string Totalmoney { get => totalmoney; set => totalmoney = value; }
+        public int Totalmoney { get => totalmoney; set => totalmoney = value; }
     }
 }

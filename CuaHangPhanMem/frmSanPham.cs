@@ -47,7 +47,8 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    if (ProductDAO.Instance.InsertProduct(name, maloai, slt, price))
+                    Product add = new Product(0, name, maloai, slt, price );
+                    if (ProductDAO.Instance.Add(add))
                     {
                         MessageBox.Show("Thêm phần mềm thành công !!");
                         LoadListProduct();
@@ -68,7 +69,7 @@ namespace CuaHangPhanMem
         }
         private void LoadListProduct()
         {
-            dgvSanPham.DataSource = ProductDAO.Instance.LoadAllProduct();
+            dgvSanPham.DataSource = ProductDAO.Instance.GetProducts();
         }
 
         ///xoa 
@@ -78,7 +79,7 @@ namespace CuaHangPhanMem
             try
             {
                 int id = int.Parse(txtID.Text);
-                if (ProductDAO.Instance.DeleteProduct(id))
+                if (ProductDAO.Instance.Delete(id))
                 {
                     MessageBox.Show("Xóa phần mềm thành công !!");
                     LoadListProduct();
@@ -131,7 +132,8 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    if (ProductDAO.Instance.UpdateProduct(id, name, maloai, slt, price))
+                    Product update = new Product(id, name, maloai, slt, price);
+                    if (ProductDAO.Instance.Update(update))
                     {
                         MessageBox.Show("Cập nhật sản phẩm thành công!!");
                         clearText();

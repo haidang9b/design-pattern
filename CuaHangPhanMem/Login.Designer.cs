@@ -35,6 +35,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.cbShowPassword = new System.Windows.Forms.CheckBox();
             this.msgError = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -85,7 +86,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(118, 482);
+            this.btnLogin.Location = new System.Drawing.Point(92, 480);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(167, 56);
             this.btnLogin.TabIndex = 4;
@@ -97,7 +98,7 @@
             // 
             this.cbShowPassword.AutoSize = true;
             this.cbShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbShowPassword.Location = new System.Drawing.Point(78, 387);
+            this.cbShowPassword.Location = new System.Drawing.Point(88, 415);
             this.cbShowPassword.Name = "cbShowPassword";
             this.cbShowPassword.Size = new System.Drawing.Size(161, 20);
             this.cbShowPassword.TabIndex = 5;
@@ -110,11 +111,23 @@
             this.msgError.AutoSize = true;
             this.msgError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msgError.ForeColor = System.Drawing.Color.Red;
-            this.msgError.Location = new System.Drawing.Point(84, 428);
+            this.msgError.Location = new System.Drawing.Point(84, 447);
             this.msgError.Name = "msgError";
             this.msgError.Size = new System.Drawing.Size(13, 20);
             this.msgError.TabIndex = 6;
             this.msgError.Text = " ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Cửa hàng 1",
+            "Cửa hàng 2"});
+            this.comboBox1.Location = new System.Drawing.Point(87, 378);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(172, 21);
+            this.comboBox1.TabIndex = 7;
             // 
             // LOGIN
             // 
@@ -123,6 +136,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackgroundImage = global::CuaHangPhanMem.Properties.Resources.Login_background;
             this.ClientSize = new System.Drawing.Size(400, 584);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.msgError);
             this.Controls.Add(this.cbShowPassword);
             this.Controls.Add(this.btnLogin);
@@ -151,6 +165,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.CheckBox cbShowPassword;
         private System.Windows.Forms.Label msgError;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

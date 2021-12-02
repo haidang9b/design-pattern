@@ -35,7 +35,7 @@ namespace CuaHangPhanMem
 
         private void loadAllBill()
         {
-            dataGridView2.DataSource = BillDAO.Instance.loadAllBill();
+            dataGridView2.DataSource = BillDAO.Instance.GetBills();
 
             
         }

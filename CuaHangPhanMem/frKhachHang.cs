@@ -1,4 +1,5 @@
 ﻿using CuaHangPhanMem.DAO;
+using CuaHangPhanMem.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +46,8 @@ namespace CuaHangPhanMem
             {
                 try
                 {
-                    if (CustomerDAO.Instance.InsertCustomer(name,sdt,dc))
+
+                    if (CustomerDAO.Instance.InsertCustomer(new Customer(0, name, sdt, dc, 0)))
                     {
                         MessageBox.Show("Thêm khách hàng thành công !!");
                         loadDatacustomer();
@@ -146,7 +148,7 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    if (CustomerDAO.Instance.UpdateCustomer(id, name,sdt,address))
+                    if (CustomerDAO.Instance.UpdateCustomer(new Customer(id, name,sdt,address, 0)))
                     {
                         
                         loadDatacustomer();

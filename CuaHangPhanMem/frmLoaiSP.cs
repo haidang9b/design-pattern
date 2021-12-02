@@ -31,7 +31,7 @@ namespace CuaHangPhanMem
             {
                 try
                 {
-                    if (ProductTypeDAO.Instance.InsertProductType(name))
+                    if (ProductTypeDAO.Instance.Add(name))
                     {
                         MessageBox.Show("Thêm loại phần mềm thành công !!");
                         loadProductType();
@@ -69,7 +69,7 @@ namespace CuaHangPhanMem
             try
             {
                 int id = int.Parse(txtID.Text);
-                if (ProductTypeDAO.Instance.DeleteProductType(id))
+                if (ProductTypeDAO.Instance.Delete(id))
                 {
                     MessageBox.Show("Xóa loại phần mềm thành công !!");
                     loadProductType();
@@ -128,7 +128,7 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    if (ProductTypeDAO.Instance.UpdateProductType(id, name))
+                    if (ProductTypeDAO.Instance.Update(id, name))
                     {
                         clearText();
                         loadProductType();

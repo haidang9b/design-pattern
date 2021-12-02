@@ -50,7 +50,7 @@ namespace CuaHangPhanMem
         //load loai san pham by id loai
         private void loadProductListByCatagoryID(int id)
         {
-            List<Product> listProduct = ProductDAO.Instance.LoadAllProductByCatagoryID(id);
+            List<Product> listProduct = ProductDAO.Instance.GetByProductTypeID(id);
             comboBox2.DataSource = listProduct;
             comboBox2.DisplayMember = "name";
         }
@@ -78,7 +78,7 @@ namespace CuaHangPhanMem
             {
                 try
                 {
-                    if (CustomerDAO.Instance.InsertCustomer(name, sdt, dc))
+                    if (CustomerDAO.Instance.InsertCustomer(new Customer(0, name, sdt, dc, 0)))
                     {
                         MessageBox.Show("Thêm khách hàng thành công !!");
                     }
@@ -158,7 +158,7 @@ namespace CuaHangPhanMem
                     //create new bill
                     if (idBill == -1)
                     {
-                        BillDAO.Instance.InsertBill(idKH, nameStaff);
+                        BillDAO.Instance.Add(idKH, nameStaff);
                         //int idmax = BillDAO.Instance.getMaxID();
                         BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.getMaxID(), idProduct, count);
                     }

@@ -1,4 +1,5 @@
 ﻿using CuaHangPhanMem.DAO;
+using CuaHangPhanMem.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace CuaHangPhanMem
         }
         private void LoadAllAccount()
         {
-            dataGridView1.DataSource = AccountDAO.Instance.loadAllAccount();
+            dataGridView1.DataSource = AccountDAO.Instance.GetAccounts();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace CuaHangPhanMem
                 {
                     if(role == 0)
                     {
-                        bool res = AccountDAO.Instance.InsertAdmin(username, password);
+                        bool res = AccountDAO.Instance.Add(new Account(0, username, password, 0));
                         if (res)
                         {
                             MessageBox.Show("Thêm tài khoản Admin thành công");
@@ -54,7 +55,7 @@ namespace CuaHangPhanMem
                     }
                     else if(role == 1)
                     {
-                        bool res = AccountDAO.Instance.InsertStaff(username, password);
+                        bool res = AccountDAO.Instance.Add(new Account(0, username, password, 1));
                         if (res)
                         {
                             MessageBox.Show("Thêm tài khoản Staff thành công");
@@ -136,7 +137,8 @@ namespace CuaHangPhanMem
                 {
                     if (role < 2)
                     {
-                        bool res = AccountDAO.Instance.UpdateUser(id, password,role);
+
+                        bool res = AccountDAO.Instance.Update(new Account(id, username, password, role));
                         if (res)
                         {
                             MessageBox.Show("Cập nhật mật khẩu thành công");
@@ -170,7 +172,7 @@ namespace CuaHangPhanMem
             try
             {
                 int id = int.Parse(txtID.Text);
-                if (AccountDAO.Instance.DeleteAccount(id))
+                if (AccountDAO.Instance.Delete(id))
                 {
                     MessageBox.Show("Xóa tài khoản thành công !!");
                     LoadAllAccount();

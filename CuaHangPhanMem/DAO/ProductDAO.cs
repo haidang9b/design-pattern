@@ -24,10 +24,10 @@ namespace CuaHangPhanMem.DAO
         }
         private ProductDAO() { }
         // LOAD DATA
-        public List<Product> LoadAllProduct()
+        public List<Product> GetProducts()
         {
             List<Product> list = new List<Product>();
-            string query = "SELECT * FROM [QUANLYBANHANG].[dbo].[SANPHAM]";
+            string query = "SELECT * FROM SANPHAM";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
@@ -36,11 +36,11 @@ namespace CuaHangPhanMem.DAO
             }
             return list;
         }
-        public List<Product> LoadAllProductByCatagoryID(int id)
+        public List<Product> GetByProductTypeID(int id)
         {
             List<Product> list = new List<Product>();
-            string query = "SELECT * FROM [QUANLYBANHANG].[dbo].[SANPHAM] Where LOAISP = " + id;
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            string query = "SELECT * FROM SANPHAM Where LOAISP = @id ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id});
             foreach (DataRow item in data.Rows)
             {
                 Product product = new Product(item);
@@ -49,28 +49,27 @@ namespace CuaHangPhanMem.DAO
             return list;
         }
         // XOA SAN PHAM
-        public bool DeleteProduct(int id)
+        public bool Delete(int id)
         {
-            string query = "DELETE FROM SANPHAM WHERE MASP = " + id;
-            int rs = DataProvider.Instance.ExecuteNoneQuery(query);
+            string query = "DELETE FROM SANPHAM WHERE MASP = @id" ;
+            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { id });
             return rs > 0;
         }
         // SUA SAN PHAM
 
-        public bool UpdateProduct(int id, string name, int catalog, int slt, int price) 
+        public bool Update(Product update) 
         {
-            string query = "UPDATE SANPHAM SET TENSP = N'" + name +"' , LOAISP = " + catalog +" ,SOLUONGTON = " + slt +" , DONGIA = " + price +" WHERE MASP = " + id;
-            int rs = DataProvider.Instance.ExecuteNoneQuery(query);
+            string query = "UPDATE SANPHAM SET TENSP = @tensp , LOAISP = @loaisp ,SOLUONGTON = @slt , DONGIA = @dongia WHERE MASP = @id " ;
+            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { update.Name, update.TypeProduct, update.AmountProduct, update.Price, update.ID});
             return rs > 0;
         }
 
 
         // THEM SAN PHAM
-        public bool InsertProduct(string name, int maloai, int slt, int price)
+        public bool Add(Product product)
         {
-            string query = "INSERT INTO SANPHAM VALUES( N'" 
-                + name + "' , " + maloai + " , " + slt + " , " + price + ")";
-            int rs = DataProvider.Instance.ExecuteNoneQuery(query);
+            string query = "INSERT INTO SANPHAM (TENSP, LOAISP, SOLUONGTON, DONGIA) VALUES ( @name , @maloai , @slt , @price )";
+            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { product.Name, product.TypeProduct, product.AmountProduct, product.Price});
             return rs>0;
         }
         // TIM KIEM SAN PHAM
@@ -78,8 +77,8 @@ namespace CuaHangPhanMem.DAO
         public List<Product> searchItem(string name)
         {
             List<Product> list = new List<Product>();
-            string query = "SELECT * FROM [QUANLYBANHANG].[dbo].[SANPHAM] WHERE TENSP LIKE N'%" + name + "%' ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            string query = "SELECT * FROM SANPHAM WHERE TENSP LIKE @name ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { "%"+name+"%"});
             foreach (DataRow item in data.Rows)
             {
                 Product product = new Product(item);
@@ -102,8 +101,8 @@ namespace CuaHangPhanMem.DAO
         public List<ViewProductRanking> loadAllProductRankingByTime(string start, string end)
         {
             List<ViewProductRanking> list = new List<ViewProductRanking>();
-            string query = "SET DATEFORMAT DMY  SELECT SANPHAM.MASP, SANPHAM.TENSP,SOLUONG, SANPHAM.DONGIA, SOLUONG*SANPHAM.DONGIA AS'TONGTIEN' FROM SANPHAM INNER JOIN (SELECT SP.MASP, SUM(CT.SL) as 'SOLUONG' FROM SANPHAM SP INNER JOIN CHITIETHOADON CT ON SP.MASP = CT.MASP INNER JOIN HOADON HD ON HD.MAHD = CT.MAHD WHERE HD.TGMUA >='" + start + "' AND HD.TGMUA <= '" + end + "' GROUP BY  SP.MASP) AS X ON X.MASP = SANPHAM.MASP ORDER BY SOLUONG DESC";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            string query = "SET DATEFORMAT DMY  SELECT SANPHAM.MASP, SANPHAM.TENSP,SOLUONG, SANPHAM.DONGIA, SOLUONG*SANPHAM.DONGIA AS'TONGTIEN' FROM SANPHAM INNER JOIN (SELECT SP.MASP, SUM(CT.SL) as 'SOLUONG' FROM SANPHAM SP INNER JOIN CHITIETHOADON CT ON SP.MASP = CT.MASP INNER JOIN HOADON HD ON HD.MAHD = CT.MAHD WHERE HD.TGMUA >= @start AND HD.TGMUA <= @end GROUP BY  SP.MASP) AS X ON X.MASP = SANPHAM.MASP ORDER BY SOLUONG DESC";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { start, end});
             foreach (DataRow item in data.Rows)
             {
                 ViewProductRanking product = new ViewProductRanking(item);
