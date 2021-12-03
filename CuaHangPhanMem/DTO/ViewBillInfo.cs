@@ -12,7 +12,7 @@ namespace CuaHangPhanMem.DTO
         private string name;
         private int counter;
         private int price;
-        private int totalMoney;
+        private Int64 totalMoney;
         public ViewBillInfo(string name, int counter, int price, int totalMoney=0)
         {
             this.name = name;
@@ -25,11 +25,11 @@ namespace CuaHangPhanMem.DTO
             this.name = row["TENSP"].ToString() ;
             this.counter = (int)row["SL"];
             this.price = (int)row["DONGIA"];
-            this.totalMoney = (int)row["TONGGIA"];
+            this.totalMoney = Int64.Parse(row["TONGGIA"].ToString());
         }
         public string Name { get => name; set => name = value; }
         public int Price { get => price; set => price = value; }
         public int Count { get => counter; set => counter = value; }
-        public int TotalMoney { get => totalMoney; set => totalMoney = value; }
+        public Int64 TotalMoney { get => totalMoney; set => totalMoney = value; }
     }
 }

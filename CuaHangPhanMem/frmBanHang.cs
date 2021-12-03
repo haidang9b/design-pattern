@@ -15,7 +15,7 @@ namespace CuaHangPhanMem
     public partial class frmBanHang : Form
     {
         public string nameStaff;
-        public frmBanHang( string name)
+        public frmBanHang(string name)
         {
             InitializeComponent();
             nameStaff = name;
@@ -33,9 +33,9 @@ namespace CuaHangPhanMem
             var data = BillDAO.Instance.loadAllBillViewNonePay(id);
             dgvBillInfo.DataSource = data;
             int totalPrice = 0;
-            foreach(ViewBillInfo item in data)
+            foreach (ViewBillInfo item in data)
             {
-                totalPrice += item.TotalMoney;
+                totalPrice += (int)item.TotalMoney;
             }
             txtTotal.Text = totalPrice.ToString();
         }
@@ -59,7 +59,7 @@ namespace CuaHangPhanMem
         {
             int id = 1;
             ComboBox cb = sender as ComboBox;
-            if(comboBox1.SelectedItem == null)
+            if (comboBox1.SelectedItem == null)
             {
                 return;
             }
@@ -126,7 +126,7 @@ namespace CuaHangPhanMem
             comboBox1.SelectedIndex = 1;
             numericUpDown1.Value = 0;
             loadCatagoryList();
-            
+
         }
         private void clearTextKH()
         {
@@ -139,11 +139,11 @@ namespace CuaHangPhanMem
         //add sl vao cthd
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            if(txtID.Text.Length < 1)
+            if (txtID.Text.Length < 1)
             {
                 MessageBox.Show("Vui lòng chọn khách hàng");
             }
-            else if((int)numericUpDown1.Value == 0)
+            else if ((int)numericUpDown1.Value == 0)
             {
                 MessageBox.Show("Vui lòng chọn lại số lượng");
             }
@@ -196,12 +196,12 @@ namespace CuaHangPhanMem
                 int idkh = int.Parse(txtID.Text);
                 if (idkh != 0)
                 {
-                    if(int.Parse(txtTotal.Text) != 0)
+                    if (int.Parse(txtTotal.Text) != 0)
                     {
                         bool rs = BillDAO.Instance.PaytheBill(idkh);
                         if (rs)
                         {
-                            MessageBox.Show("Thanh toán thành công. Khách hàng " + txtName.Text + " với đơn hàng trị giá " + txtTotal.Text +"VND. Hóa đơn sẽ hiện ngay sau đây");
+                            MessageBox.Show("Thanh toán thành công. Khách hàng " + txtName.Text + " với đơn hàng trị giá " + txtTotal.Text + "VND. Hóa đơn sẽ hiện ngay sau đây");
                             int last_bill = BillDAO.Instance.getMaxID();
                             /*frmReportBill reportBill = new frmReportBill(last_bill, txtName.Text, txtTotal.Text);
                             reportBill.Show();*/
@@ -254,7 +254,7 @@ namespace CuaHangPhanMem
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
