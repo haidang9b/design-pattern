@@ -47,11 +47,18 @@ namespace CuaHangPhanMem.DAO
 
         public void Add(int id, string name)
         {
-            DataProvider.Instance.ExecuteNoneQuery("exec USP_INSERTBILL "+ id+" ,'"+name+"' " );
+            string query = "INSERT HOADON(MAKH ,NVBAN ,TGMUA ,TONGTIEN) VALUES ( @makh , @nvban , @tgban , 0)";
+            DateTime myDateTime = DateTime.Now;
+            string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd");
+
+            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { id, name, sqlFormattedDate });
+
+            // NOT USING PROCEDURE
+            /*DataProvider.Instance.ExecuteNoneQuery("exec USP_INSERTBILL "+ id+" ,'"+name+"' " );*/
         }
         public int GetUncheckBillByIDCustomer(int id)
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM HOADON WHERE MAKH= @id AND STATUS = 0", new object[] { id});
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM HOADON WHERE MAKH = @id AND STATUS = 0", new object[] { id});
             if(data.Rows.Count > 0)
             {
                 Bill bill = new Bill(data.Rows[0]);
@@ -73,10 +80,41 @@ namespace CuaHangPhanMem.DAO
         }
         public bool PaytheBill(int idkh)
         {
-            string query = "EXEC PROC_THANHTOAN @idkh" ;
-            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { idkh});
+            int oldTotalMoney = CustomerDAO.Instance.GetTotalMoneyByID(idkh);
+            int idhd = GetIDBillNonePayment(idkh);
+
+            string queryUpdateTotalMoney = " UPDATE KHACHHANG SET TONGTIEN = (SELECT SUM(DONGIA * SL) " +
+                                            " FROM CHITIETHOADON CT " +
+                                            " INNER JOIN SANPHAM SP ON SP.MASP = CT.MASP " +
+
+                                            " WHERE CT.MAHD = @IDHD ) + @MONEY " +
+                                            " WHERE MAKH = @IDKH ";
+            DataProvider.Instance.ExecuteNoneQuery(queryUpdateTotalMoney, new object[] { idhd, oldTotalMoney, idkh });
+
+            string updateBill = " UPDATE HOADON SET STATUS = 1, TONGTIEN  = (SELECT SUM(DONGIA*SL) " +
+                " FROM CHITIETHOADON CT " +
+                " INNER JOIN SANPHAM SP ON SP.MASP = CT.MASP " +
+                " WHERE CT.MAHD = @IDHD ) " +
+                " WHERE MAKH = @IDKH ";
+
+            int rs = DataProvider.Instance.ExecuteNoneQuery(updateBill, new object[] { idhd, idkh });
+
+
+           /* string query = "EXEC PROC_THANHTOAN @idkh" ;
+            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { idkh});*/
             return rs > 0;
         }
+
+        public int GetIDBillNonePayment(int makh)
+        {
+            string query = "SELECT MAHD FROM HOADON HD INNER JOIN KHACHHANG KH ON KH.MAKH = HD.MAKH WHERE HD.STATUS = 0 AND HD.MAKH = @makh ";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { makh});
+
+            DataRow dataRow = dataTable.Rows[0];
+            return (int)dataRow["MAHD"];
+
+        }
+
         public List<Bill> getAllBillViewByTime(string start, string end)
         {
             List<Bill> list = new List<Bill>();

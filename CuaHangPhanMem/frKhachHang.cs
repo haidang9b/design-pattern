@@ -25,7 +25,7 @@ namespace CuaHangPhanMem
         }
         private void loadDatacustomer()
         {
-            dgvKhachHang.DataSource = CustomerDAO.Instance.LoadAllCustomer();
+            dgvKhachHang.DataSource = CustomerDAO.Instance.GetCustomers();
         }
 
         
@@ -47,7 +47,7 @@ namespace CuaHangPhanMem
                 try
                 {
 
-                    if (CustomerDAO.Instance.InsertCustomer(new Customer(0, name, sdt, dc, 0)))
+                    if (CustomerDAO.Instance.Add(new Customer(0, name, sdt, dc, 0)))
                     {
                         MessageBox.Show("Thêm khách hàng thành công !!");
                         loadDatacustomer();
@@ -117,7 +117,7 @@ namespace CuaHangPhanMem
             try
             {
                 int id = int.Parse(txtID.Text);
-                if (CustomerDAO.Instance.DeleteCustomer(id))
+                if (CustomerDAO.Instance.Delete(id))
                 {
                     MessageBox.Show("Xóa khách hàng thành công !!");
                     loadDatacustomer();
@@ -148,7 +148,7 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    if (CustomerDAO.Instance.UpdateCustomer(new Customer(id, name,sdt,address, 0)))
+                    if (CustomerDAO.Instance.Update(new Customer(id, name,sdt,address, 0)))
                     {
                         
                         loadDatacustomer();

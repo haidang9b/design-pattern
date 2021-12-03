@@ -35,7 +35,7 @@ namespace CuaHangPhanMem.DAO
             }
             return list;
         }
-        public List<Customer> LoadAllCustomer()
+        public List<Customer> GetCustomers()
         {
             List<Customer> list = new List<Customer>();
             string query = "SELECT MAKH,TENKH,SDTKH,DIACHI,TONGTIEN FROM KHACHHANG";
@@ -47,21 +47,21 @@ namespace CuaHangPhanMem.DAO
             }
             return list;
         }
-        public bool InsertCustomer(Customer customer)
+        public bool Add(Customer customer)
         {
             string query = "INSERT INTO KHACHHANG(TENKH,SDTKH,DIACHI,TONGTIEN) VALUES( @name , @sdt , @diachi ,0)";
             int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { customer.Name, customer.Phone, customer.Add});
             return rs > 0;
         }
 
-        public bool DeleteCustomer(int id)
+        public bool Delete(int id)
         {
             string query = "DELETE FROM KHACHHANG WHERE MAKH = @id ";
             int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { id});
             return rs > 0;
         }
 
-        public bool UpdateCustomer(Customer customer)
+        public bool Update(Customer customer)
         {
             string query = "UPDATE KHACHHANG SET TENKH = @name , SDTKH = @sdt , DIACHI= @add WHERE MAKH = @id " ;
             int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { customer.Name, customer.Phone, customer.Add, customer.Id });
@@ -79,6 +79,15 @@ namespace CuaHangPhanMem.DAO
                 list.Add(customer);
             }
             return list;
+        }
+
+
+        public int GetTotalMoneyByID(int id)
+        {
+            string query = "SELECT TONGTIEN FROM KHACHHANG WHERE MAKH =  @IDKH ";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
+            DataRow dataRow = dataTable.Rows[0];
+            return (int)dataRow["TONGTIEN"];
         }
 
     }

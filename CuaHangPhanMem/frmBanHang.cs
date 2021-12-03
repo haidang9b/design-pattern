@@ -78,7 +78,7 @@ namespace CuaHangPhanMem
             {
                 try
                 {
-                    if (CustomerDAO.Instance.InsertCustomer(new Customer(0, name, sdt, dc, 0)))
+                    if (CustomerDAO.Instance.Add(new Customer(0, name, sdt, dc, 0)))
                     {
                         MessageBox.Show("Thêm khách hàng thành công !!");
                     }
@@ -101,7 +101,7 @@ namespace CuaHangPhanMem
         //load khach hang
         private void LoadKH()
         {
-            dgvKhachHang.DataSource = CustomerDAO.Instance.LoadAllCustomer();
+            dgvKhachHang.DataSource = CustomerDAO.Instance.GetCustomers();
         }
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -203,8 +203,8 @@ namespace CuaHangPhanMem
                         {
                             MessageBox.Show("Thanh toán thành công. Khách hàng " + txtName.Text + " với đơn hàng trị giá " + txtTotal.Text +"VND. Hóa đơn sẽ hiện ngay sau đây");
                             int last_bill = BillDAO.Instance.getMaxID();
-                            frmReportBill reportBill = new frmReportBill(last_bill, txtName.Text, txtTotal.Text);
-                            reportBill.Show();
+                            /*frmReportBill reportBill = new frmReportBill(last_bill, txtName.Text, txtTotal.Text);
+                            reportBill.Show();*/
                             LoadKH();
                             loadDataDonhang(idkh);
                         }
