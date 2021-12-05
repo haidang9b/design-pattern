@@ -72,6 +72,7 @@
     <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.27\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -111,10 +112,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\CommandButton.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
-    <Compile Include="DAO\CRUD.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
@@ -254,7 +255,26 @@
       <DependentUpon>QUANLYBANHANGDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Strategy\IDValidation.cs" />
+    <Compile Include="Strategy\IValidation.cs" />
+    <Compile Include="Strategy\PositiveNumberValidation.cs" />
+    <Compile Include="Strategy\StringValidation.cs" />
+    <Compile Include="Strategy\PhoneValidation.cs" />
+    <Compile Include="Strategy\ValidationContext.cs" />
+    <Compile Include="Template\AddAccount.cs" />
+    <Compile Include="Template\AddCustomer.cs" />
+    <Compile Include="Template\AddProduct.cs" />
+    <Compile Include="Template\AddProductType.cs" />
+    <Compile Include="Template\IActionTemplate.cs" />
+    <Compile Include="Template\RemoveAccount.cs" />
+    <Compile Include="Template\RemoveCustomer.cs" />
+    <Compile Include="Template\RemoveProduct.cs" />
+    <Compile Include="Template\RemoveProductType.cs" />
     <Compile Include="Template\SellTemplate.cs" />
+    <Compile Include="Template\UpdateAccount.cs" />
+    <Compile Include="Template\UpdateCustomer.cs" />
+    <Compile Include="Template\UpdateProduct.cs" />
+    <Compile Include="Template\UpdateProductType.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,7 +402,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BUS\" />
-    <Folder Include="Strategy\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SqlServerTypes\readme.htm" />

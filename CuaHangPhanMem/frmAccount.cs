@@ -1,5 +1,7 @@
 ﻿using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
+using CuaHangPhanMem.Strategy;
+using CuaHangPhanMem.Template;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,9 +27,30 @@ namespace CuaHangPhanMem
         {
             LoadAllAccount();
         }
-        private void LoadAllAccount()
+        public void LoadAllAccount()
         {
             dataGridView1.DataSource = AccountDAO.Instance.GetAccounts();
+        }
+
+        public Account GetAccountTextBox()
+        {
+            string username = txtUser.Text;
+            string password = txtPass.Text;
+            int ID = 0;
+            int role = 1;
+
+            try
+            {
+                ID = int.Parse(txtID.Text);
+                role = int.Parse(cbRole.SelectedIndex.ToString());
+            }
+            catch
+            {
+                ID = 0;
+                role = 1;
+            }
+
+            return new Account(ID, username, password, role);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -36,41 +59,23 @@ namespace CuaHangPhanMem
             string password = txtPass.Text;
             string slect = cbRole.SelectedIndex.ToString();
             
-            if(username.Length >0 && password.Length >0 && slect.Length>0)
+            if(new ValidatorContext(username, ValidatorType.String).runValidation() 
+                && new ValidatorContext(password, ValidatorType.String).runValidation() 
+                && new ValidatorContext(slect, ValidatorType.ID).runValidation())
             {
                 int role = int.Parse(cbRole.SelectedIndex.ToString());
                 try
                 {
-                    if(role == 0)
+                    if(role == 0 || role == 1)
                     {
-                        bool res = AccountDAO.Instance.Add(new Account(0, username, password, 0));
-                        if (res)
-                        {
-                            MessageBox.Show("Thêm tài khoản Admin thành công");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm tài khoản Admin thất bại");
-                        }
-                    }
-                    else if(role == 1)
-                    {
-                        bool res = AccountDAO.Instance.Add(new Account(0, username, password, 1));
-                        if (res)
-                        {
-                            MessageBox.Show("Thêm tài khoản Staff thành công");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm tài khoản Staff thất bại");
-                        }
+                        IActionTemplate template = new AddAccount();
+                        template.form = this;
+                        template.runAction();
                     }
                     else
                     {
                         MessageBox.Show("Vui lòng chọn hợp lệ ");
                     }
-                    
-
                 }
                 catch
                 {
@@ -81,8 +86,6 @@ namespace CuaHangPhanMem
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin");
             }
-            LoadAllAccount();
-            clearText();
 
         }
 
@@ -111,7 +114,7 @@ namespace CuaHangPhanMem
             clearText();
         }
 
-        private void clearText()
+        public void clearText()
         {
             txtID.Text = "";
             txtPass.Text = "";
@@ -125,34 +128,29 @@ namespace CuaHangPhanMem
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtID.Text);
+            
             string username = txtUser.Text;
             string password = txtPass.Text;
             string slect = cbRole.SelectedIndex.ToString();
 
-            if (username.Length > 0 && password.Length > 0 && slect.Length > 0)
+            if (new ValidatorContext(username, ValidatorType.String).runValidation()
+                && new ValidatorContext(password, ValidatorType.String).runValidation()
+                && new ValidatorContext(slect, ValidatorType.ID).runValidation())
             {
                 int role = int.Parse(cbRole.SelectedIndex.ToString());
                 try
                 {
                     if (role < 2)
                     {
-
-                        bool res = AccountDAO.Instance.Update(new Account(id, username, password, role));
-                        if (res)
-                        {
-                            MessageBox.Show("Cập nhật mật khẩu thành công");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Cập nhật mật khẩu thất bại");
-                        }
+                        IActionTemplate template = new UpdateAccount();
+                        template.form = this;
+                        template.runAction();
                     }
                     else
                     {
                         MessageBox.Show("Vui lòng chọn hợp lệ ");
                     }
-                    LoadAllAccount();
+                    
                 }
                 catch
                 {
@@ -163,8 +161,6 @@ namespace CuaHangPhanMem
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin");
             }
-            LoadAllAccount();
-            clearText();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -172,15 +168,11 @@ namespace CuaHangPhanMem
             try
             {
                 int id = int.Parse(txtID.Text);
-                if (AccountDAO.Instance.Delete(id))
+                if(new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    MessageBox.Show("Xóa tài khoản thành công !!");
-                    LoadAllAccount();
-                    clearText();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa tài khoản này thất bại!");
+                    IActionTemplate template = new RemoveAccount();
+                    template.form = this;
+                    template.runAction();
                 }
             }
             catch

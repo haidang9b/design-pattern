@@ -1,5 +1,7 @@
 ﻿using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
+using CuaHangPhanMem.Strategy;
+using CuaHangPhanMem.Template;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +33,31 @@ namespace CuaHangPhanMem
             comboBox1.DataSource = listCata;
             comboBox1.DisplayMember = "name";
         }
+
+        public Product GetProductTextBox()
+        {
+            int id = 0;
+            string name = txtName.Text;
+            ProductType selected = comboBox1.SelectedItem as ProductType;
+            int productType = selected.Id;
+            int slt = 0;
+            int price = 0;
+
+            try
+            {
+                id = int.Parse(txtID.Text);
+                slt = int.Parse(txtSLT.Text);
+                price = int.Parse(txtDonGia.Text);
+            }
+            catch
+            {
+                id = 0;
+                slt = 0;
+                price = 0;
+            }
+            return new Product(id, name, productType, slt, price);
+
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             
@@ -38,26 +65,20 @@ namespace CuaHangPhanMem
             {
                 ProductType selected = comboBox1.SelectedItem as ProductType;
                 int maloai = selected.Id;
-                String name = txtName.Text;
+                string name = txtName.Text;
                 int slt = int.Parse(txtSLT.Text);
                 int price = int.Parse(txtDonGia.Text);
-                if(name.Length<1  || price < 1 || slt <1)
+                if(new ValidatorContext(txtName.Text, ValidatorType.String).runValidation() == false
+                    && new ValidatorContext(txtSLT.Text, ValidatorType.PositiveNumber).runValidation() == false
+                    && new ValidatorContext(txtDonGia.Text, ValidatorType.PositiveNumber).runValidation() == false)
                 {
                     MessageBox.Show("Vui lòng điều đủ thông tin");
                 }
                 else
                 {
-                    Product add = new Product(0, name, maloai, slt, price );
-                    if (ProductDAO.Instance.Add(add))
-                    {
-                        MessageBox.Show("Thêm phần mềm thành công !!");
-                        LoadListProduct();
-                        clearText();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không thành công!!");
-                    }
+                    IActionTemplate template = new AddProduct();
+                    template.form = this;
+                    template.runAction();
                 }
             }
             catch
@@ -67,7 +88,7 @@ namespace CuaHangPhanMem
             
             
         }
-        private void LoadListProduct()
+        public void LoadListProduct()
         {
             dgvSanPham.DataSource = ProductDAO.Instance.GetProducts();
         }
@@ -78,17 +99,15 @@ namespace CuaHangPhanMem
         {
             try
             {
-                int id = int.Parse(txtID.Text);
-                if (ProductDAO.Instance.Delete(id))
+                if(new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    MessageBox.Show("Xóa phần mềm thành công !!");
-                    LoadListProduct();
-                    clearText();
+                    IActionTemplate template = new RemoveProduct();
+                    template.form = this;
+                    template.runAction();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa phần mềm thành công !!");
-
+                    MessageBox.Show("Vui lòng chọn hợp lệ");
                 }
 
             }
@@ -98,7 +117,7 @@ namespace CuaHangPhanMem
 
             }
         }
-        private void clearText()
+        public void clearText()
         {
             txtDonGia.Text = "";
             txtName.Text = "";
@@ -107,7 +126,6 @@ namespace CuaHangPhanMem
             btnCapNhat.Enabled = true;
             btnXoa.Enabled = false;
             btnSearch.Enabled = true;
-            LoadListProduct();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -126,23 +144,18 @@ namespace CuaHangPhanMem
                 int slt = int.Parse(txtSLT.Text);
                 int price = int.Parse(txtDonGia.Text);
 
-                if (name.Length < 1 || slt < 1 || price < 1)
+                if (new ValidatorContext(txtName.Text, ValidatorType.String).runValidation() == false
+                    && new ValidatorContext(txtSLT.Text, ValidatorType.PositiveNumber).runValidation() == false
+                    && new ValidatorContext(txtDonGia.Text, ValidatorType.PositiveNumber).runValidation() == false 
+                    && new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation() == false)
                 {
                     MessageBox.Show("Vui lòng điền đủ thông tin !!");
                 }
                 else
                 {
-                    Product update = new Product(id, name, maloai, slt, price);
-                    if (ProductDAO.Instance.Update(update))
-                    {
-                        MessageBox.Show("Cập nhật sản phẩm thành công!!");
-                        clearText();
-                        LoadListProduct();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cập nhật sản phẩm thất bại!!");
-                    }
+                    IActionTemplate template = new UpdateProduct();
+                    template.form = this;
+                    template.runAction();
                 }
             }
             catch

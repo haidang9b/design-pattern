@@ -1,5 +1,7 @@
 ﻿using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
+using CuaHangPhanMem.Strategy;
+using CuaHangPhanMem.Template;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,58 +29,52 @@ namespace CuaHangPhanMem
         private void btnThem_Click(object sender, EventArgs e)
         {
             String name = txtName.Text;
-            if(name.Length > 0)
+            if(new ValidatorContext(name, ValidatorType.String).runValidation())
             {
-                try
-                {
-                    if (ProductTypeDAO.Instance.Add(name))
-                    {
-                        MessageBox.Show("Thêm loại phần mềm thành công !!");
-                        loadProductType();
-                        clearText();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thêm loại phần mềm thất bại!!");
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Thêm loại phần mềm thất bại!!");
-                }
-                btnThem.Enabled = true;
-                btnClear.Enabled = true;
-                btnXoa.Enabled = true;
-                btnSearch.Enabled = false;
+                IActionTemplate template = new AddProductType();
+                template.form = this;
+                template.runAction();
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập thông tin");
+                MessageBox.Show("Vui lòng nhập thông tin hợp lệ");
             }
             
 
         }
-        private void loadProductType()
+
+        public ProductType GetProductTypeTextBox()
+        {
+            string name = txtName.Text;
+            int id = 0;
+            try {
+                id = int.Parse(txtID.Text);
+            }
+            catch
+            {
+                id = 0;
+            }
+            return new ProductType(id, name);
+        }
+        public void loadProductType()
         {
             dgvLoaiSanPham.DataSource = ProductTypeDAO.Instance.LoadAllProductType();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 int id = int.Parse(txtID.Text);
-                if (ProductTypeDAO.Instance.Delete(id))
+                if( new ValidatorContext(txtID.Text , ValidatorType.ID).runValidation() == false)
                 {
-                    MessageBox.Show("Xóa loại phần mềm thành công !!");
-                    loadProductType();
-                    clearText();
+                    MessageBox.Show("Vui lòng chọn loại phần mềm cần xóa");
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("Xóa loại phần mềm thất bại !!");
-                }
+
+                IActionTemplate template = new RemoveProductType();
+                template.form = this;
+                template.runAction();
             }
             catch
             {
@@ -104,7 +100,7 @@ namespace CuaHangPhanMem
             }
             
         }
-        private void clearText()
+        public void clearText()
         {
             txtName.Text = "";
             txtID.Text = "";
@@ -122,23 +118,19 @@ namespace CuaHangPhanMem
             {
                 int id = int.Parse(txtID.Text);
                 string name = txtName.Text;
-                if(name.Length < 1)
+                if(new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation() == false)
+                {
+                    MessageBox.Show("Vui lòng chọn loại phần mềm");
+                }
+                else if(new ValidatorContext(name, ValidatorType.String).runValidation() == false)
                 {
                     MessageBox.Show("Vui lòng nhập tên loại phần mềm");
                 }
                 else
                 {
-                    if (ProductTypeDAO.Instance.Update(id, name))
-                    {
-                        clearText();
-                        loadProductType();
-                        MessageBox.Show("Cập nhật loại phần mềm thành công !!");
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cập nhật loại phần mềm thất bại !!");
-                    }
+                    IActionTemplate template = new UpdateProductType();
+                    template.form = this;
+                    template.runAction();
                 }
                 
             }

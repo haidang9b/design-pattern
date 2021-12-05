@@ -1,5 +1,7 @@
 ﻿using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
+using CuaHangPhanMem.Strategy;
+using CuaHangPhanMem.Template;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +25,7 @@ namespace CuaHangPhanMem
         {
             loadDatacustomer();
         }
-        private void loadDatacustomer()
+        public void loadDatacustomer()
         {
             dgvKhachHang.DataSource = CustomerDAO.Instance.GetCustomers();
         }
@@ -42,36 +44,47 @@ namespace CuaHangPhanMem
             String sdt = txtSdt.Text;
             String dc = txtDiaChi.Text;
 
-            if (name.Length > 0 || sdt.Length >0 || dc.Length>0)
+            if (new ValidatorContext(name, ValidatorType.String).runValidation() && new ValidatorContext(sdt, ValidatorType.Phone).runValidation() && new ValidatorContext(dc, ValidatorType.String).runValidation())
             {
                 try
                 {
-
-                    if (CustomerDAO.Instance.Add(new Customer(0, name, sdt, dc, 0)))
-                    {
-                        MessageBox.Show("Thêm khách hàng thành công !!");
-                        loadDatacustomer();
-                        clearText();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thêm khách hàng mềm thất bại!!");
-                    }
+                    IActionTemplate template = new AddCustomer();
+                    template.form = this;
+                    template.runAction();
                 }
                 catch
                 {
                     MessageBox.Show("Thêm khách hàng thất bại!!");
                 }
-                btnThem.Enabled = true;
-                btnClear.Enabled = true;
-                btnXoa.Enabled = true;
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập thông tin");
+                MessageBox.Show("Vui lòng nhập thông tin hợp lệ");
             }
 
 
+        }
+
+        public Customer GetCustomerTextBox()
+        {
+            string name = txtName.Text;
+            string sdt = txtSdt.Text;
+            string dc = txtDiaChi.Text;
+            int tongtien = 0;
+            int id = 0;
+                
+            try
+            {
+                id = int.Parse(txtID.Text);
+                tongtien = int.Parse(txtTien.Text);
+            }
+            catch
+            {
+                id = 0;
+                tongtien = 0;
+            }
+
+            return new Customer(id, name, sdt, dc, tongtien);
         }
         //clear text box
         public void clearText()
@@ -84,7 +97,6 @@ namespace CuaHangPhanMem
             btnThem.Enabled = true;
             btnCapNhat.Enabled = true;
             btnXoa.Enabled = false;
-            loadDatacustomer();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -116,16 +128,15 @@ namespace CuaHangPhanMem
         {
             try
             {
-                int id = int.Parse(txtID.Text);
-                if (CustomerDAO.Instance.Delete(id))
+                if(new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    MessageBox.Show("Xóa khách hàng thành công !!");
-                    loadDatacustomer();
-                    clearText();
+                    IActionTemplate template = new RemoveCustomer();
+                    template.form = this;
+                    template.runAction();
                 }
                 else
                 {
-                    MessageBox.Show("Xóa khách hàng này thất bại, vui lòng chọn khách hàng hợp lệ!!");
+                    MessageBox.Show("Vui lòng chọn khách hàng hợp lệ!!");
                 }
             }
             catch
@@ -142,24 +153,19 @@ namespace CuaHangPhanMem
                 string address = txtDiaChi.Text;
                 string name = txtName.Text;
                 string sdt = txtSdt.Text;
-                if (name.Length < 1 || address.Length<1 || sdt.Length<1)
+                if (new ValidatorContext(name, ValidatorType.String).runValidation() 
+                    && new ValidatorContext(sdt, ValidatorType.Phone).runValidation()
+                    && new ValidatorContext(address, ValidatorType.String).runValidation()
+                    && new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    MessageBox.Show("Vui lòng nhập tên khách hàng");
+                    
+                    IActionTemplate template = new UpdateCustomer();
+                    template.form = this;
+                    template.runAction();
                 }
                 else
                 {
-                    if (CustomerDAO.Instance.Update(new Customer(id, name,sdt,address, 0)))
-                    {
-                        
-                        loadDatacustomer();
-                        MessageBox.Show("Cập nhật khách hàng thành công !!");
-                        clearText();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cập nhật khách hàng thất bại !!");
-                    }
+                    MessageBox.Show("Vui lòng nhập thông tin khách hàng hợp lệ");
                 }
 
             }

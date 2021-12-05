@@ -1,8 +1,10 @@
 ﻿using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
+using CuaHangPhanMem.Strategy;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -73,8 +75,8 @@ namespace CuaHangPhanMem
             String name = txtName.Text;
             String sdt = txtSDT.Text;
             String dc = txtDC.Text;
-
-            if (name.Length > 0 || sdt.Length > 0 || dc.Length > 0)
+           
+            if (new ValidatorContext(name, ValidatorType.String).runValidation() && new ValidatorContext(sdt, ValidatorType.Phone).runValidation() && new ValidatorContext(dc, ValidatorType.String).runValidation())
             {
                 try
                 {
@@ -94,7 +96,7 @@ namespace CuaHangPhanMem
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập thông tin");
+                MessageBox.Show("Vui lòng nhập thông tin hợp lệ");
             }
             LoadKH();
         }
@@ -139,7 +141,7 @@ namespace CuaHangPhanMem
         //add sl vao cthd
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            if (txtID.Text.Length < 1)
+            if (new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation() ==  false)
             {
                 MessageBox.Show("Vui lòng chọn khách hàng");
             }

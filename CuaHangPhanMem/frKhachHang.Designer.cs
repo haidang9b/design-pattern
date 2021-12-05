@@ -446,14 +446,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel d;
-        private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtSdt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtTien;
@@ -463,5 +460,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvKhachHang;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtDiaChi;
+        private System.Windows.Forms.TextBox txtSdt;
     }
 }

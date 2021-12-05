@@ -354,7 +354,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label6;
@@ -368,5 +367,6 @@
         private FontAwesome.Sharp.IconButton btnCapNhat;
         private FontAwesome.Sharp.IconButton btnSearch;
         private System.Windows.Forms.Panel panelRightItem;
+        private System.Windows.Forms.TextBox txtName;
     }
 }
