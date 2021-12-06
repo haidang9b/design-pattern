@@ -1,4 +1,5 @@
-﻿using CuaHangPhanMem.DAO;
+﻿using CuaHangPhanMem.Command;
+using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
 using CuaHangPhanMem.Strategy;
 using CuaHangPhanMem.Template;
@@ -16,9 +17,17 @@ namespace CuaHangPhanMem
 {
     public partial class frKhachHang : Form
     {
+        ActionRemoteControl remote;
         public frKhachHang()
         {
             InitializeComponent();
+            remote = new ActionRemoteControl();
+            ICommandAction add = new CustomerAddCommand(this);
+            ICommandAction update = new CustomerUpdateCommand(this);
+            ICommandAction remove = new CustomerRemoveCommand(this);
+            remote.SetCommandAction((int)TypeAction.Add, add);
+            remote.SetCommandAction((int)TypeAction.Remove, remove);
+            remote.SetCommandAction((int)TypeAction.Update, update);
         }
 
         private void frKhachHang_Load(object sender, EventArgs e)
@@ -48,9 +57,7 @@ namespace CuaHangPhanMem
             {
                 try
                 {
-                    IActionTemplate template = new AddCustomer();
-                    template.form = this;
-                    template.runAction();
+                    remote.buttonWasPressed((int)TypeAction.Add);
                 }
                 catch
                 {
@@ -130,9 +137,10 @@ namespace CuaHangPhanMem
             {
                 if(new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    IActionTemplate template = new RemoveCustomer();
+                    remote.buttonWasPressed((int)TypeAction.Remove);
+                    /*IActionTemplate template = new RemoveCustomer();
                     template.form = this;
-                    template.runAction();
+                    template.runAction();*/
                 }
                 else
                 {
@@ -158,10 +166,10 @@ namespace CuaHangPhanMem
                     && new ValidatorContext(address, ValidatorType.String).runValidation()
                     && new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    
-                    IActionTemplate template = new UpdateCustomer();
+                    remote.buttonWasPressed((int)TypeAction.Update);
+                    /*IActionTemplate template = new UpdateCustomer();
                     template.form = this;
-                    template.runAction();
+                    template.runAction();*/
                 }
                 else
                 {

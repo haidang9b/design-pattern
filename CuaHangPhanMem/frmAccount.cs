@@ -1,4 +1,5 @@
-﻿using CuaHangPhanMem.DAO;
+﻿using CuaHangPhanMem.Command;
+using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
 using CuaHangPhanMem.Strategy;
 using CuaHangPhanMem.Template;
@@ -16,9 +17,19 @@ namespace CuaHangPhanMem
 {
     public partial class frmAccount : Form
     {
+        ActionRemoteControl remote;
         public frmAccount()
         {
             InitializeComponent();
+            remote = new ActionRemoteControl();
+
+            ICommandAction add = new AccountAddCommand(this);
+            ICommandAction update = new AccountUpdateCommand(this);
+            ICommandAction remove = new AccountRemoveCommand(this);
+            remote.SetCommandAction((int)TypeAction.Add, add);
+            remote.SetCommandAction((int)TypeAction.Remove, remove);
+            remote.SetCommandAction((int)TypeAction.Update, update);
+
         }
 
        
@@ -68,9 +79,12 @@ namespace CuaHangPhanMem
                 {
                     if(role == 0 || role == 1)
                     {
-                        IActionTemplate template = new AddAccount();
+
+                        remote.buttonWasPressed((int)TypeAction.Add);
+
+                        /*IActionTemplate template = new AddAccount();
                         template.form = this;
-                        template.runAction();
+                        template.runAction();*/
                     }
                     else
                     {
@@ -142,9 +156,12 @@ namespace CuaHangPhanMem
                 {
                     if (role < 2)
                     {
-                        IActionTemplate template = new UpdateAccount();
+                        
+                        remote.buttonWasPressed((int)TypeAction.Update);
+
+                        /*IActionTemplate template = new UpdateAccount();
                         template.form = this;
-                        template.runAction();
+                        template.runAction();*/
                     }
                     else
                     {
@@ -170,9 +187,7 @@ namespace CuaHangPhanMem
                 int id = int.Parse(txtID.Text);
                 if(new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    IActionTemplate template = new RemoveAccount();
-                    template.form = this;
-                    template.runAction();
+                    remote.buttonWasPressed((int)TypeAction.Remove);
                 }
             }
             catch

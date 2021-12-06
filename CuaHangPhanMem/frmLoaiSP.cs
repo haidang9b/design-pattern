@@ -1,4 +1,5 @@
-﻿using CuaHangPhanMem.DAO;
+﻿using CuaHangPhanMem.Command;
+using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
 using CuaHangPhanMem.Strategy;
 using CuaHangPhanMem.Template;
@@ -16,9 +17,18 @@ namespace CuaHangPhanMem
 {
     public partial class frmLoaiSP : Form
     {
+        ActionRemoteControl remote;
         public frmLoaiSP()
         {
             InitializeComponent();
+
+            remote = new ActionRemoteControl();
+            ICommandAction add = new ProductTypeAddCommand(this);
+            ICommandAction update = new ProductTypeUpdateCommand(this);
+            ICommandAction remove = new ProductTypeRemoveCommand(this);
+            remote.SetCommandAction((int)TypeAction.Add, add);
+            remote.SetCommandAction((int)TypeAction.Remove, remove);
+            remote.SetCommandAction((int)TypeAction.Update, update);
         }
 
         private void frmLoaiSP_Load(object sender, EventArgs e)
@@ -31,9 +41,11 @@ namespace CuaHangPhanMem
             String name = txtName.Text;
             if(new ValidatorContext(name, ValidatorType.String).runValidation())
             {
-                IActionTemplate template = new AddProductType();
-                template.form = this;
-                template.runAction();
+                /* IActionTemplate template = new AddProductType();
+                 template.form = this;
+                 template.runAction();*/
+
+                remote.buttonWasPressed((int)TypeAction.Add);
             }
             else
             {
@@ -72,9 +84,10 @@ namespace CuaHangPhanMem
                     return;
                 }
 
-                IActionTemplate template = new RemoveProductType();
-                template.form = this;
-                template.runAction();
+                /* IActionTemplate template = new RemoveProductType();
+                 template.form = this;
+                 template.runAction();*/
+                remote.buttonWasPressed((int)TypeAction.Remove);
             }
             catch
             {
@@ -108,8 +121,6 @@ namespace CuaHangPhanMem
             btnCapNhat.Enabled = true;
             btnXoa.Enabled = false;
             btnSearch.Enabled = true;
-            loadProductType();
-
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -128,9 +139,10 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    IActionTemplate template = new UpdateProductType();
+                    /*IActionTemplate template = new UpdateProductType();
                     template.form = this;
-                    template.runAction();
+                    template.runAction();*/
+                    remote.buttonWasPressed((int)TypeAction.Update);
                 }
                 
             }

@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\CommandAction.cs" />
     <Compile Include="Command\CommandButton.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
@@ -400,9 +401,7 @@
   <ItemGroup>
     <None Include="Resources\Login_background.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BUS\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

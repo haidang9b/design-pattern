@@ -1,4 +1,5 @@
-﻿using CuaHangPhanMem.DAO;
+﻿using CuaHangPhanMem.Command;
+using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
 using CuaHangPhanMem.Strategy;
 using CuaHangPhanMem.Template;
@@ -16,9 +17,17 @@ namespace CuaHangPhanMem
 {
     public partial class frmSanPham : Form
     {
+        ActionRemoteControl remote;
         public frmSanPham()
         {
             InitializeComponent();
+            remote = new ActionRemoteControl();
+            ICommandAction add = new ProductAddCommand(this);
+            ICommandAction update = new ProductUpdateCommand(this);
+            ICommandAction remove = new ProductRemoveCommand(this);
+            remote.SetCommandAction((int)TypeAction.Add, add);
+            remote.SetCommandAction((int)TypeAction.Remove, remove);
+            remote.SetCommandAction((int)TypeAction.Update, update);
         }
         
         private void frmSanPham_Load(object sender, EventArgs e)
@@ -76,9 +85,10 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    IActionTemplate template = new AddProduct();
+                    /*IActionTemplate template = new AddProduct();
                     template.form = this;
-                    template.runAction();
+                    template.runAction();*/
+                    remote.buttonWasPressed((int)TypeAction.Add);
                 }
             }
             catch
@@ -101,9 +111,10 @@ namespace CuaHangPhanMem
             {
                 if(new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    IActionTemplate template = new RemoveProduct();
+                    /*IActionTemplate template = new RemoveProduct();
                     template.form = this;
-                    template.runAction();
+                    template.runAction();*/
+                    remote.buttonWasPressed((int)TypeAction.Remove);
                 }
                 else
                 {
@@ -153,9 +164,10 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    IActionTemplate template = new UpdateProduct();
+                    /*IActionTemplate template = new UpdateProduct();
                     template.form = this;
-                    template.runAction();
+                    template.runAction();*/
+                    remote.buttonWasPressed((int)TypeAction.Update);
                 }
             }
             catch
