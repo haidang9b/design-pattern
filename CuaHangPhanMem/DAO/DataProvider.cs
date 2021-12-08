@@ -45,7 +45,7 @@ namespace CuaHangPhanMem.DAO
             DatabaseFactory factory = DBFactory.Instance().createDatabaseFactory();
             return factory;
         }
-        // Dung de load data
+        // Dung de load data theo data table
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
@@ -76,7 +76,7 @@ namespace CuaHangPhanMem.DAO
             return data;
         }
 
-        //dung cho them xoa sua
+        //dung cho them xoa sua , tra ve la so dong no thực hiện đc
         public int ExecuteNoneQuery(string query, object[] parameter = null)
         {
             int data = 0;
@@ -108,6 +108,7 @@ namespace CuaHangPhanMem.DAO
 
 
 
+        // Dùng để trả về string, int , double .. chứ không phải một class
         public object ExecuteScalar(string query, object[] parameter = null)
         {
             object data = 0;

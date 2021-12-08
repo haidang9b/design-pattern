@@ -157,16 +157,30 @@ namespace CuaHangPhanMem
                     int idBill = BillDAO.Instance.GetUncheckBillByIDCustomer(idKH);
                     int idProduct = (comboBox2.SelectedItem as Product).ID;
                     int count = (int)numericUpDown1.Value;
+                    int quantity = ProductDAO.Instance.GetCurrentQuantity(idProduct);
+
                     //create new bill
                     if (idBill == -1)
                     {
+                        
+                        if (count > quantity)
+                        {
+                            MessageBox.Show("Số lượng sản phẩm này chỉ còn " + quantity + " vui lòng chọn lại");
+                            return;
+                        }
                         BillDAO.Instance.Add(idKH, nameStaff);
                         //int idmax = BillDAO.Instance.getMaxID();
-                        BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.getMaxID(), idProduct, count);
+                        BillDAO.Instance.InsertBillInfo(BillDAO.Instance.getMaxID(), idProduct, count);
                     }
                     else
                     {
-                        BillInfoDAO.Instance.InsertBillInfo(idBill, idProduct, count);
+                        int quantityInBill = ProductDAO.Instance.GetQuantityInBillUnPayment(idBill, idProduct);
+                        if(quantity < quantityInBill + count)
+                        {
+                            MessageBox.Show("Số lượng sản phẩm này chỉ còn " + quantity + " vui lòng chọn lại");
+                            return;
+                        }
+                        BillDAO.Instance.InsertBillInfo(idBill, idProduct, count);
                     }
                     loadDataDonhang(idKH);
                 }

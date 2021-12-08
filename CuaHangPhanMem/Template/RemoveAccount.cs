@@ -14,14 +14,19 @@ namespace CuaHangPhanMem.Template
         {
             var newForm = (frmAccount)form;
             var account = newForm.GetAccountTextBox();
-            if (AccountDAO.Instance.Delete(account.ID))
-            {
-                MessageBox.Show("Xóa tài khoản thành công !!");
+            MessageBoxResult confirmResult = MessageBox.Show("Bạn có muốn xóa tài khoản này không ??", "Xác nhận xóa tài khoản", MessageBoxButton.YesNo);
 
-            }
-            else
+            if(confirmResult == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Xóa tài khoản này thất bại!");
+                if (AccountDAO.Instance.Delete(account.ID))
+                {
+                    MessageBox.Show("Xóa tài khoản thành công !!");
+
+                }
+                else
+                {
+                    MessageBox.Show("Xóa tài khoản này thất bại!");
+                }
             }
         }
 

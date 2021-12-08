@@ -82,7 +82,7 @@ namespace CuaHangPhanMem.DAO
         {
             int oldTotalMoney = CustomerDAO.Instance.GetTotalMoneyByID(idkh);
             int idhd = GetIDBillNonePayment(idkh);
-
+            
             string queryUpdateTotalMoney = " UPDATE KHACHHANG SET TONGTIEN = (SELECT SUM(DONGIA * SL) " +
                                             " FROM CHITIETHOADON CT " +
                                             " INNER JOIN SANPHAM SP ON SP.MASP = CT.MASP " +
@@ -97,12 +97,28 @@ namespace CuaHangPhanMem.DAO
                 " WHERE CT.MAHD = @IDHD ) " +
                 " WHERE MAKH = @IDKH ";
 
+            ReduceProductQuantity(idhd);
             int rs = DataProvider.Instance.ExecuteNoneQuery(updateBill, new object[] { idhd, idkh });
 
 
            /* string query = "EXEC PROC_THANHTOAN @idkh" ;
             int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { idkh});*/
             return rs > 0;
+        }
+
+        public void ReduceProductQuantity(int idhd)
+        {
+            string queryMySQL = "UPDATE SANPHAM AS p INNER JOIN CHITIETHOADON AS op ON p.MASP = op.MASP SET p.SOLUONGTON = p.SOLUONGTON - op.SL WHERE op.MAHD = @MAHD ";
+            string queryMMSQL = "UPDATE P SET SOLUONGTON = SOLUONGTON - CTHD.SL FROM SANPHAM P INNER JOIN CHITIETHOADON CTHD ON P.MASP = CTHD.MASP WHERE MAHD = @MAHD ";
+            if (SaveDataStatic.typeServer == 1)
+            {
+                DataProvider.Instance.ExecuteNoneQuery(queryMMSQL, new object[] { idhd });
+            }
+            else
+            {
+                DataProvider.Instance.ExecuteNoneQuery(queryMySQL, new object[] { idhd });
+            }
+
         }
 
         public int GetIDBillNonePayment(int makh)
@@ -192,6 +208,45 @@ namespace CuaHangPhanMem.DAO
                 list.Add(product);
             }
             return list;
+        }
+
+
+        public void InsertBillInfo(int idBill, int idProduct, int sl)
+        {
+            string query = "SELECT ID , SL  FROM CHITIETHOADON WHERE MAHD = @idhd AND MASP = @idsp";
+            // check exist product in bill;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idBill, idProduct });
+            if (data.Rows.Count > 0)
+            {
+                DataRow dataRow = data.Rows[0];
+                var countProduct = (int)dataRow["SL"];
+                var IDCTHD = (int)dataRow["ID"];
+                var newCount = countProduct + sl;
+                // new count product = old + new;
+                if (newCount > 0)
+                {
+                    string queryUpdate = "UPDATE CHITIETHOADON SET SL = @NEWCOUNT WHERE MAHD = @idBill AND @idProduct =MASP";
+                    DataProvider.Instance.ExecuteNoneQuery(queryUpdate, new object[] { newCount, idBill, idProduct });
+                }
+                else
+                {
+                    // if <= 0  remove; 
+                    string queryDelete = "DELETE CHITIETHOADON WHERE MAHD = @idBill AND @idProduct =MASP";
+                    DataProvider.Instance.ExecuteNoneQuery(queryDelete, new object[] { idBill, idProduct });
+                }
+            }
+            else
+            {
+                if (sl <= 0)
+                {
+                    return;
+                }
+                // add item to bill
+                string queryNew = "INSERT INTO CHITIETHOADON(MAHD,MASP,SL) VALUES( @idBill , @idProduct , @count )";
+                DataProvider.Instance.ExecuteNoneQuery(queryNew, new object[] { idBill, idProduct, sl });
+            }
+            // NOT USING PROCEDURE
+            /*DataProvider.Instance.ExecuteNoneQuery("exec USP_INSERTBILLINFO @idBill , @idProduct , @count ", new object[] { idBill, idProduct,sl });*/
         }
 
     }

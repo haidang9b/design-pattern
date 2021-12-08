@@ -14,13 +14,18 @@ namespace CuaHangPhanMem.Template
         {
             var newForm = (frmLoaiSP)form;
             var item = newForm.GetProductTypeTextBox();
-            if (ProductTypeDAO.Instance.Delete(item.Id))
+            MessageBoxResult confirmResult = MessageBox.Show("Bạn có muốn xóa loại phần mềm này không ??", "Xác nhận xóa loại phần mềm", MessageBoxButton.YesNo);
+            
+            if(confirmResult == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Xóa loại phần mềm thành công !!");
-            }
-            else
-            {
-                MessageBox.Show("Xóa loại phần mềm thất bại!!");
+                if (ProductTypeDAO.Instance.Delete(item.Id))
+                {
+                    MessageBox.Show("Xóa loại phần mềm thành công !!");
+                }
+                else
+                {
+                    MessageBox.Show("Xóa loại phần mềm thất bại!!");
+                }
             }
         }
 

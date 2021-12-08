@@ -111,6 +111,39 @@ namespace CuaHangPhanMem.DAO
             return list;
         }
 
+        public int GetCurrentQuantity(int id)
+        {
+            string query = "SELECT SOLUONGTON FROM SANPHAM WHERE MASP = @ID";
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar(query, new object[] { id });
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int GetQuantityInBillUnPayment(int idBill, int idProduct)
+        {
+            string query = "SELECT SL FROM CHITIETHOADON WHERE MAHD = @MAHD AND MASP = @MASP";
+            try
+            {
+                DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { idBill, idProduct });
+
+                if(data.Rows.Count > 0)
+                {
+                    DataRow dataRow = data.Rows[0];
+                    return (int)dataRow["SL"];
+                }
+                return 0;
+                /*return (int)DataProvider.Instance.ExecuteScalar(query, new object[] { idBill, idProduct });*/
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 
 

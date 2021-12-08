@@ -14,14 +14,21 @@ namespace CuaHangPhanMem.Template
         {
             var newForm = (frmSanPham)form;
             var product = newForm.GetProductTextBox();
-            if (ProductDAO.Instance.Delete(product.ID))
+
+            MessageBoxResult confirmResult = MessageBox.Show("Bạn có muốn xóa phần mềm này không ??", "Xác nhận xóa phần mềm", MessageBoxButton.YesNo);
+
+            if(confirmResult == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Xóa phần mềm thành công !!");
+                if (ProductDAO.Instance.Delete(product.ID))
+                {
+                    MessageBox.Show("Xóa phần mềm thành công !!");
+                }
+                else
+                {
+                    MessageBox.Show("Xóa phần mềm không thành công!!");
+                }
             }
-            else
-            {
-                MessageBox.Show("Xóa phần mềm không thành công!!");
-            }
+
         }
 
         protected override void ClearTextBox()

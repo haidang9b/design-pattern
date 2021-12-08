@@ -14,15 +14,21 @@ namespace CuaHangPhanMem.Template
         {
             var newForm = (frKhachHang)form;
             var customer = newForm.GetCustomerTextBox();
-            if (CustomerDAO.Instance.Delete(customer.Id))
-            {
-                MessageBox.Show("Xóa khách hàng thành công !!");
+            MessageBoxResult confirmResult = MessageBox.Show("Bạn có muốn xóa khách hàng này không ??", "Xác nhận xóa khách hàng", MessageBoxButton.YesNo);
 
-            }
-            else
+            if(confirmResult == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Xóa khách hàng thất bại!!");
+                if (CustomerDAO.Instance.Delete(customer.Id))
+                {
+                    MessageBox.Show("Xóa khách hàng thành công !!");
+
+                }
+                else
+                {
+                    MessageBox.Show("Xóa khách hàng thất bại!!");
+                }
             }
+            
         }
 
         protected override void ClearTextBox()
