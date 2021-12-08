@@ -11,11 +11,11 @@ namespace CuaHangPhanMem.DTO
     {
         int iD;
         string tenSP;
-        int soLuong;
-        int donGia;
-        int tongTien;
+        Int64 soLuong;
+        Int64 donGia;
+        Int64 tongTien;
 
-        public ViewProductRanking(int iD, string tenSP, int soLuong, int donGia, int tongTien)
+        public ViewProductRanking(int iD, string tenSP, Int64 soLuong, Int64 donGia, Int64 tongTien)
         {
             this.iD = iD;
             this.tenSP = tenSP;
@@ -27,14 +27,14 @@ namespace CuaHangPhanMem.DTO
         {
             this.iD = (int)row["MASP"];
             this.tenSP = row["TENSP"].ToString();
-            this.soLuong = (int)row["SOLUONG"];
-            this.donGia = (int)row["DONGIA"];
-            this.tongTien = (int)row["TONGTIEN"];
+            this.soLuong = Int64.Parse(row["SOLUONG"].ToString());
+            this.donGia = Int64.Parse(row["DONGIA"].ToString());
+            this.tongTien = Int64.Parse(row["TONGTIEN"].ToString());
         }
         public int ID { get => iD; set => iD = value; }
         public string TenSP { get => tenSP; set => tenSP = value; }
-        public int SoLuong { get => soLuong; set => soLuong = value; }
-        public int DonGia { get => donGia; set => donGia = value; }
-        public int TongTien { get => tongTien; set => tongTien = value; }
+        public Int64 SoLuong { get => soLuong; set => soLuong = value; }
+        public Int64 DonGia { get => donGia; set => donGia = value; }
+        public Int64 TongTien { get => tongTien; set => tongTien = value; }
     }
 }
