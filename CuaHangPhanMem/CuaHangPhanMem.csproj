@@ -141,6 +141,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNotifyEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotifyEmail.Designer.cs">
+      <DependentUpon>frmNotifyEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Factory\FactoryLogin.cs" />
+    <Compile Include="DTO\EmailData.cs" />
+    <Compile Include="Observer\IEmailObserver.cs" />
+    <Compile Include="Observer\MailerService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QUANLYBANHANGDataSet.Designer.cs">
@@ -255,6 +264,7 @@
       <DependentUpon>QUANLYBANHANGDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Strategy\EmailValidation.cs" />
     <Compile Include="Strategy\IDValidation.cs" />
     <Compile Include="Strategy\IValidation.cs" />
     <Compile Include="Strategy\PositiveNumberValidation.cs" />
@@ -292,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoaiSP.resx">
       <DependentUpon>frmLoaiSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotifyEmail.resx">
+      <DependentUpon>frmNotifyEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportBill.resx">
       <DependentUpon>frmReportBill.cs</DependentUpon>

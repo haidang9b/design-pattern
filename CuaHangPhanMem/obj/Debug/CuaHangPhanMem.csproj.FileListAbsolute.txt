@@ -305,3 +305,4 @@ D:\Java\Design Pattern\CuoiKi\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMe
 D:\Java\Design Pattern\CuoiKi\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.CopyComplete
 D:\Java\Design Pattern\CuoiKi\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.exe
 D:\Java\Design Pattern\CuoiKi\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.pdb
+D:\Java\Design Pattern\CuoiKi\source code\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.frmNotifyEmail.resources

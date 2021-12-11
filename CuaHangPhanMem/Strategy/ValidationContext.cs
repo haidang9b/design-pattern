@@ -10,7 +10,8 @@ namespace CuaHangPhanMem.Strategy
         String,
         PositiveNumber,
         ID,
-        Phone
+        Phone,
+        Email
     }
     public class ValidatorContext
     {
@@ -51,6 +52,8 @@ namespace CuaHangPhanMem.Strategy
                     return new PositiveNumberValidation();
                 case ValidatorType.String:
                     return new StringValidation();
+                case ValidatorType.Email:
+                    return new EmailValidation();
                 default:
                     return new StringValidation();
             }

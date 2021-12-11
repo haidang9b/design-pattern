@@ -81,7 +81,7 @@ namespace CuaHangPhanMem
             {
                 try
                 {
-                    if (CustomerDAO.Instance.Add(new Customer(0, name, sdt, dc, 0)))
+                    if (CustomerDAO.Instance.Add(new Customer(0, name, sdt, dc, 0, "")))
                     {
                         MessageBox.Show("Thêm khách hàng thành công !!");
                     }

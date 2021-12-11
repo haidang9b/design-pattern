@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2021 at 04:40 PM
+-- Generation Time: Dec 11, 2021 at 10:25 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -81,7 +81,8 @@ INSERT INTO `chitiethoadon` (`ID`, `MAHD`, `MASP`, `SL`) VALUES
 (3, 2, 5, 6),
 (4, 3, 5, 2),
 (5, 4, 5, 4),
-(6, 4, 3, 4);
+(6, 4, 3, 4),
+(7, 5, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,8 @@ INSERT INTO `hoadon` (`MAHD`, `MAKH`, `NVBAN`, `TGMUA`, `TONGTIEN`, `STATUS`) VA
 (1, 1, 'admin', '2021-12-03', 4444, 1),
 (2, 2, 'admin', '2021-12-03', 13332, 1),
 (3, 1, 'admin', '2021-12-03', 4444, 1),
-(4, 3, 'admin', '2021-12-03', 9776, 1);
+(4, 3, 'admin', '2021-12-03', 9776, 1),
+(5, 1, 'admin', '2021-12-08', 4444, 1);
 
 -- --------------------------------------------------------
 
@@ -119,17 +121,18 @@ CREATE TABLE `khachhang` (
   `TENKH` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `SDTKH` char(11) DEFAULT NULL,
   `DIACHI` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `TONGTIEN` int(11) DEFAULT 0
+  `TONGTIEN` int(11) DEFAULT 0,
+  `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `khachhang`
 --
 
-INSERT INTO `khachhang` (`MAKH`, `TENKH`, `SDTKH`, `DIACHI`, `TONGTIEN`) VALUES
-(1, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 6866),
-(2, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 13332),
-(3, 'TOnny Đăng', '0326555555', 'aaaaa', 9776);
+INSERT INTO `khachhang` (`MAKH`, `TENKH`, `SDTKH`, `DIACHI`, `TONGTIEN`, `email`) VALUES
+(1, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 11310, 'linhhaiyen1182@gmail.com '),
+(2, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 13332, 'cunkul35@gmail.com'),
+(3, 'TOnny Đăng', '0326555555', 'aaaaa', 9776, NULL);
 
 -- --------------------------------------------------------
 
@@ -170,10 +173,10 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`MASP`, `TENSP`, `LOAISP`, `SOLUONGTON`, `DONGIA`) VALUES
-(1, 'Sản phẩm 1222', 2, 1, 200),
+(1, 'Sản phẩm 1222', 2, -10, 200),
 (2, 'Sản phẩm 1', 2, 23223232, 22224242),
-(3, 'Sản phẩm 1222', 2, 222, 222),
-(5, 'assddd', 1, 2, 2222);
+(3, 'Sản phẩm 1222', 2, 221, 222),
+(5, 'assddd', 1, 0, 2222);
 
 -- --------------------------------------------------------
 
@@ -265,13 +268,13 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `khachhang`

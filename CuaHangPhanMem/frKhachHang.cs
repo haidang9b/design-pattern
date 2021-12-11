@@ -92,6 +92,7 @@ namespace CuaHangPhanMem
             string name = txtName.Text;
             string sdt = txtSdt.Text;
             string dc = txtDiaChi.Text;
+            string email = txtEmail.Text;
             int tongtien = 0;
             int id = 0;
                 
@@ -106,7 +107,7 @@ namespace CuaHangPhanMem
                 tongtien = 0;
             }
 
-            return new Customer(id, name, sdt, dc, tongtien);
+            return new Customer(id, name, sdt, dc, tongtien, email);
         }
         //clear text box
         public void clearText()
@@ -116,6 +117,7 @@ namespace CuaHangPhanMem
             txtDiaChi.Text = "";
             txtSdt.Text = "";
             txtTien.Text = "";
+            txtEmail.Text = "";
 
             enableCommandAdd.execute();
             disableCommandRemove.execute();
@@ -140,7 +142,7 @@ namespace CuaHangPhanMem
                 txtDiaChi.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtSdt.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtTien.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[4].Value.ToString();
-
+                txtEmail.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[5].Value.ToString();
                 disableCommandAdd.execute();
                 enableCommandRemove.execute();
                 enableCommandUpdate.execute();

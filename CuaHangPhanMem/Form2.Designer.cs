@@ -56,6 +56,7 @@
             this.labelBar = new System.Windows.Forms.Label();
             this.iconCurrentTitle = new FontAwesome.Sharp.IconPictureBox();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.btnOpenSendEmail = new System.Windows.Forms.Button();
             lbTitleCurrent = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelTaiChinh.SuspendLayout();
@@ -112,7 +113,7 @@
             this.btnInfoApp.IconColor = System.Drawing.Color.White;
             this.btnInfoApp.IconSize = 36;
             this.btnInfoApp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfoApp.Location = new System.Drawing.Point(0, 837);
+            this.btnInfoApp.Location = new System.Drawing.Point(0, 891);
             this.btnInfoApp.Name = "btnInfoApp";
             this.btnInfoApp.Rotation = 0D;
             this.btnInfoApp.Size = new System.Drawing.Size(220, 60);
@@ -134,7 +135,7 @@
             this.btnAccount.IconColor = System.Drawing.Color.White;
             this.btnAccount.IconSize = 36;
             this.btnAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAccount.Location = new System.Drawing.Point(0, 777);
+            this.btnAccount.Location = new System.Drawing.Point(0, 831);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Rotation = 0D;
             this.btnAccount.Size = new System.Drawing.Size(220, 60);
@@ -149,7 +150,7 @@
             this.panelTaiChinh.Controls.Add(this.btnThongKePhanMem);
             this.panelTaiChinh.Controls.Add(this.btnThongKeDoanhThu);
             this.panelTaiChinh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTaiChinh.Location = new System.Drawing.Point(0, 664);
+            this.panelTaiChinh.Location = new System.Drawing.Point(0, 718);
             this.panelTaiChinh.Name = "panelTaiChinh";
             this.panelTaiChinh.Size = new System.Drawing.Size(220, 113);
             this.panelTaiChinh.TabIndex = 22;
@@ -195,7 +196,7 @@
             this.btnTaiChinh.IconColor = System.Drawing.Color.White;
             this.btnTaiChinh.IconSize = 36;
             this.btnTaiChinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTaiChinh.Location = new System.Drawing.Point(0, 604);
+            this.btnTaiChinh.Location = new System.Drawing.Point(0, 658);
             this.btnTaiChinh.Name = "btnTaiChinh";
             this.btnTaiChinh.Rotation = 0D;
             this.btnTaiChinh.Size = new System.Drawing.Size(220, 60);
@@ -207,11 +208,12 @@
             // panelKhachhang
             // 
             this.panelKhachhang.BackColor = System.Drawing.Color.DarkBlue;
+            this.panelKhachhang.Controls.Add(this.btnOpenSendEmail);
             this.panelKhachhang.Controls.Add(this.button2);
             this.panelKhachhang.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelKhachhang.Location = new System.Drawing.Point(0, 544);
             this.panelKhachhang.Name = "panelKhachhang";
-            this.panelKhachhang.Size = new System.Drawing.Size(220, 60);
+            this.panelKhachhang.Size = new System.Drawing.Size(220, 114);
             this.panelKhachhang.TabIndex = 19;
             // 
             // button2
@@ -481,6 +483,20 @@
             this.panelContent.Size = new System.Drawing.Size(1044, 903);
             this.panelContent.TabIndex = 4;
             // 
+            // btnOpenSendEmail
+            // 
+            this.btnOpenSendEmail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOpenSendEmail.FlatAppearance.BorderSize = 0;
+            this.btnOpenSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenSendEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenSendEmail.Location = new System.Drawing.Point(0, 50);
+            this.btnOpenSendEmail.Name = "btnOpenSendEmail";
+            this.btnOpenSendEmail.Size = new System.Drawing.Size(220, 50);
+            this.btnOpenSendEmail.TabIndex = 1;
+            this.btnOpenSendEmail.Text = "Gửi thông báo khách hàng";
+            this.btnOpenSendEmail.UseVisualStyleBackColor = true;
+            this.btnOpenSendEmail.Click += new System.EventHandler(this.btnOpenSendEmail_Click);
+            // 
             // BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,5 +555,6 @@
         private System.Windows.Forms.Label labelBar;
         private System.Windows.Forms.Button btnTKDH;
         private FontAwesome.Sharp.IconButton btnInfoApp;
+        private System.Windows.Forms.Button btnOpenSendEmail;
     }
 }

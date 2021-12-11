@@ -232,5 +232,11 @@ namespace CuaHangPhanMem
             OpenChildForm(new frmInfoApp());
             hideSubMenu();
         }
+
+        private void btnOpenSendEmail_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmNotifyEmail());
+            labelBar.Text = "Khách hàng > Khách hàng thân thiết";
+        }
     }
 }
