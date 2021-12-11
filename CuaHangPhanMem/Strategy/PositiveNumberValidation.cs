@@ -14,12 +14,15 @@ namespace CuaHangPhanMem.Strategy
             {
                 return false;
             }
-            if (int.TryParse(str, out int value))
+            try
             {
-                var result = value > 0 ? true : false;
-                return result;
+                int tmp = int.Parse(str);
+                return tmp > 0;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
     }
 }

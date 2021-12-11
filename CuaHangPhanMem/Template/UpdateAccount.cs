@@ -10,6 +10,12 @@ namespace CuaHangPhanMem.Template
 {
     class UpdateAccount : IActionTemplate
     {
+        private bool isDone = false;
+
+        protected override bool hasDone()
+        {
+            return isDone;
+        }
         protected override void action()
         {
             var newForm = (frmAccount)form;
@@ -17,6 +23,7 @@ namespace CuaHangPhanMem.Template
             bool res = AccountDAO.Instance.Update(account);
             if (res)
             {
+                isDone = true;
                 MessageBox.Show("Cập nhật mật khẩu thành công");
             }
             else

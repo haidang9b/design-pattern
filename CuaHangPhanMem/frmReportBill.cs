@@ -27,9 +27,9 @@ namespace CuaHangPhanMem
         private void frmReportBill_Load(object sender, EventArgs e)
         {
 
-            
+
             // TODO: This line of code loads data into the 'QUANLYBANHANGDataSet1.PROC_GETBILLINFO' table. You can move, or remove it, as needed.
-            this.PROC_GETBILLINFOTableAdapter.Fill(this.QUANLYBANHANGDataSet1.PROC_GETBILLINFO,idBill);
+            this.PROC_GETBILLINFOTableAdapter.Fill(this.QUANLYBANHANGDataSet1.PROC_GETBILLINFO, idBill);
             Microsoft.Reporting.WinForms.ReportParameter[] reportParameters = new Microsoft.Reporting.WinForms.ReportParameter[]
             {
                 new Microsoft.Reporting.WinForms.ReportParameter("TenKHmua",tenKHmua),

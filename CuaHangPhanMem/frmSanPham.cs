@@ -18,6 +18,10 @@ namespace CuaHangPhanMem
     public partial class frmSanPham : Form
     {
         ActionRemoteControl remote;
+        ICommandControl enableCommandAdd, disableCommandAdd;
+        ICommandControl enableCommandRemove, disableCommandRemove;
+        ICommandControl enableCommandUpdate, disableCommandUpdate;
+        ICommandControl enableCommandSearch, disableCommandSearch;
         public frmSanPham()
         {
             InitializeComponent();
@@ -28,12 +32,27 @@ namespace CuaHangPhanMem
             remote.SetCommandAction((int)TypeAction.Add, add);
             remote.SetCommandAction((int)TypeAction.Remove, remove);
             remote.SetCommandAction((int)TypeAction.Update, update);
+
+
+            enableCommandAdd = new EnableCommand(btnThem);
+            disableCommandAdd = new DisableCommand(btnThem);
+
+            enableCommandRemove = new EnableCommand(btnXoa);
+            disableCommandRemove = new DisableCommand(btnXoa);
+
+            enableCommandUpdate = new EnableCommand(btnCapNhat);
+            disableCommandUpdate = new DisableCommand(btnCapNhat);
+
+            enableCommandSearch = new EnableCommand(btnSearch);
+            disableCommandSearch = new DisableCommand(btnSearch);
         }
         
         private void frmSanPham_Load(object sender, EventArgs e)
         {
+            
             LoadListProduct();
             loadCatagoryList();
+            clearText();
         }
         //load loai san pham va do vao list 
         private void loadCatagoryList()
@@ -81,7 +100,7 @@ namespace CuaHangPhanMem
                     && new ValidatorContext(txtSLT.Text, ValidatorType.PositiveNumber).runValidation() == false
                     && new ValidatorContext(txtDonGia.Text, ValidatorType.PositiveNumber).runValidation() == false)
                 {
-                    MessageBox.Show("Vui lòng điều đủ thông tin");
+                    MessageBox.Show("Vui lòng điều đủ thông tin hợp lệ");
                 }
                 else
                 {
@@ -130,13 +149,20 @@ namespace CuaHangPhanMem
         }
         public void clearText()
         {
+            txtID.Text = "";
             txtDonGia.Text = "";
             txtName.Text = "";
             txtSLT.Text = "";
-            btnThem.Enabled = true;
+
+
+            /*btnThem.Enabled = true;
             btnCapNhat.Enabled = true;
             btnXoa.Enabled = false;
-            btnSearch.Enabled = true;
+            btnSearch.Enabled = true;*/
+            enableCommandAdd.execute();
+            enableCommandSearch.execute();
+            disableCommandRemove.execute();
+            disableCommandUpdate.execute();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -155,19 +181,20 @@ namespace CuaHangPhanMem
                 int slt = int.Parse(txtSLT.Text);
                 int price = int.Parse(txtDonGia.Text);
 
-                if (new ValidatorContext(txtName.Text, ValidatorType.String).runValidation() == false
-                    && new ValidatorContext(txtSLT.Text, ValidatorType.PositiveNumber).runValidation() == false
-                    && new ValidatorContext(txtDonGia.Text, ValidatorType.PositiveNumber).runValidation() == false 
-                    && new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation() == false)
+                if (new ValidatorContext(txtName.Text, ValidatorType.String).runValidation()
+                    && new ValidatorContext(txtSLT.Text, ValidatorType.PositiveNumber).runValidation()
+                    && new ValidatorContext(txtDonGia.Text, ValidatorType.PositiveNumber).runValidation()
+                    && new ValidatorContext(txtID.Text, ValidatorType.ID).runValidation())
                 {
-                    MessageBox.Show("Vui lòng điền đủ thông tin !!");
+                    remote.buttonWasPressed((int)TypeAction.Update);
                 }
                 else
                 {
                     /*IActionTemplate template = new UpdateProduct();
                     template.form = this;
                     template.runAction();*/
-                    remote.buttonWasPressed((int)TypeAction.Update);
+                    
+                    MessageBox.Show("Vui lòng điền đủ thông tin hợp lệ!!");
                 }
             }
             catch
@@ -185,10 +212,16 @@ namespace CuaHangPhanMem
                 comboBox1.SelectedIndex = (int)this.dgvSanPham.Rows[e.RowIndex].Cells[2].Value;
                 txtSLT.Text = this.dgvSanPham.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtDonGia.Text = this.dgvSanPham.Rows[e.RowIndex].Cells[4].Value.ToString();
-                btnThem.Enabled = false;
+
+                disableCommandAdd.execute();
+                disableCommandSearch.execute();
+                enableCommandRemove.execute();
+                enableCommandUpdate.execute();
+
+               /* btnThem.Enabled = false;
                 btnClear.Enabled = true;
                 btnXoa.Enabled = true;
-                btnSearch.Enabled = false;
+                btnSearch.Enabled = false;*/
             }
             catch
             {

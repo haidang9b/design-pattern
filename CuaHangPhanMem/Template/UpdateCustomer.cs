@@ -10,12 +10,20 @@ namespace CuaHangPhanMem.Template
 {
     class UpdateCustomer : IActionTemplate
     {
+
+        private bool isDone = false;
+
+        protected override bool hasDone()
+        {
+            return isDone;
+        }
         protected override void action()
         {
             var newForm = (frKhachHang)form;
             var customer = newForm.GetCustomerTextBox();
             if (CustomerDAO.Instance.Update(customer))
             {
+                isDone = true;
                 MessageBox.Show("Cập nhật khách hàng thành công !!");
 
             }

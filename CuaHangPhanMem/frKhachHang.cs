@@ -18,6 +18,9 @@ namespace CuaHangPhanMem
     public partial class frKhachHang : Form
     {
         ActionRemoteControl remote;
+        ICommandControl enableCommandAdd, disableCommandAdd;
+        ICommandControl enableCommandRemove, disableCommandRemove;
+        ICommandControl enableCommandUpdate, disableCommandUpdate;
         public frKhachHang()
         {
             InitializeComponent();
@@ -28,11 +31,23 @@ namespace CuaHangPhanMem
             remote.SetCommandAction((int)TypeAction.Add, add);
             remote.SetCommandAction((int)TypeAction.Remove, remove);
             remote.SetCommandAction((int)TypeAction.Update, update);
+
+            enableCommandAdd = new EnableCommand(btnThem);
+            disableCommandAdd = new DisableCommand(btnThem);
+
+            enableCommandRemove = new EnableCommand(btnXoa);
+            disableCommandRemove = new DisableCommand(btnXoa);
+
+            enableCommandUpdate = new EnableCommand(btnCapNhat);
+            disableCommandUpdate = new DisableCommand(btnCapNhat);
+
+
         }
 
         private void frKhachHang_Load(object sender, EventArgs e)
         {
             loadDatacustomer();
+            clearText();
         }
         public void loadDatacustomer()
         {
@@ -101,9 +116,14 @@ namespace CuaHangPhanMem
             txtDiaChi.Text = "";
             txtSdt.Text = "";
             txtTien.Text = "";
-            btnThem.Enabled = true;
+
+            enableCommandAdd.execute();
+            disableCommandRemove.execute();
+            disableCommandUpdate.execute();
+
+            /*btnThem.Enabled = true;
             btnCapNhat.Enabled = true;
-            btnXoa.Enabled = false;
+            btnXoa.Enabled = false;*/
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -120,10 +140,14 @@ namespace CuaHangPhanMem
                 txtDiaChi.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtSdt.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtTien.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[4].Value.ToString();
-                btnThem.Enabled = false;
+
+                disableCommandAdd.execute();
+                enableCommandRemove.execute();
+                enableCommandUpdate.execute();
+/*                btnThem.Enabled = false;
                 btnClear.Enabled = true;
                 btnXoa.Enabled = true;
-                btnCapNhat.Enabled = true;
+                btnCapNhat.Enabled = true;*/
             }
             catch
             {

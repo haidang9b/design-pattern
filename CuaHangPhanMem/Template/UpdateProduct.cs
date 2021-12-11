@@ -10,12 +10,19 @@ namespace CuaHangPhanMem.Template
 {
     class UpdateProduct : IActionTemplate
     {
+        private bool isDone = false;
+
+        protected override bool hasDone()
+        {
+            return isDone;
+        }
         protected override void action()
         {
             var newForm = (frmSanPham)form;
             var product = newForm.GetProductTextBox();
             if (ProductDAO.Instance.Update(product))
             {
+                isDone = true;
                 MessageBox.Show("Cập nhật phần mềm thành công !!");
             }
             else

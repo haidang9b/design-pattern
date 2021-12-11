@@ -13,13 +13,21 @@ namespace CuaHangPhanMem.Template
         public void runAction()
         {
             action();
-            ClearTextBox();
-            LoadData();
+            if (hasDone())
+            {
+                ClearTextBox();
+                LoadData();
+            }
         }
 
         protected abstract void action(); 
         protected abstract void ClearTextBox();
         protected abstract void LoadData();
+        
+        protected virtual bool hasDone()
+        {
+            return true;
+        }
 
     }
 }

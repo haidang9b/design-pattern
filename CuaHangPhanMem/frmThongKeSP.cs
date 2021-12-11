@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,10 +42,15 @@ namespace CuaHangPhanMem
 
         private void btnXuatFILE_Click(object sender, EventArgs e)
         {
-            string start = dptStart.Value.ToString("dd-MM-yyyy");
-            string end = dptEnd.Value.ToString("dd-MM-yyyy");
-            frmReportSanpham re = new frmReportSanpham(start,end);
-            re.Show();
+            Thread th = new Thread(() =>
+           {
+               string start = dptStart.Value.ToString("dd-MM-yyyy");
+               string end = dptEnd.Value.ToString("dd-MM-yyyy");
+               Form re = new frmReportSanpham(start, end);
+               re.Show();
+           });
+
+            th.Start();
         }
     }
 }

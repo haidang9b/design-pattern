@@ -18,6 +18,11 @@ namespace CuaHangPhanMem
     public partial class frmAccount : Form
     {
         ActionRemoteControl remote;
+
+        ICommandControl enableCommandAdd, disableCommandAdd;
+        ICommandControl enableCommandRemove, disableCommandRemove;
+        ICommandControl enableCommandUpdate, disableCommandUpdate;
+        ICommandControl enableCommandTextUsername, disableCommandTextUsername;
         public frmAccount()
         {
             InitializeComponent();
@@ -30,6 +35,17 @@ namespace CuaHangPhanMem
             remote.SetCommandAction((int)TypeAction.Remove, remove);
             remote.SetCommandAction((int)TypeAction.Update, update);
 
+            enableCommandAdd = new EnableCommand(btnThem);
+            disableCommandAdd = new DisableCommand(btnThem);
+
+            enableCommandRemove = new EnableCommand(btnXoa);
+            disableCommandRemove = new DisableCommand(btnXoa);
+
+            enableCommandUpdate = new EnableCommand(btnCapNhat);
+            disableCommandUpdate = new DisableCommand(btnCapNhat);
+
+            enableCommandTextUsername = new EnableCommand(txtUser);
+            disableCommandTextUsername = new DisableCommand(txtUser);
         }
 
        
@@ -37,6 +53,7 @@ namespace CuaHangPhanMem
         private void frmAccount_Load(object sender, EventArgs e)
         {
             LoadAllAccount();
+            clearText();
         }
         public void LoadAllAccount()
         {
@@ -111,11 +128,17 @@ namespace CuaHangPhanMem
                 txtUser.Text = this.dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtPass.Text = this.dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
                 cbRole.SelectedIndex = int.Parse(this.dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
-                btnThem.Enabled = false;
-                btnClear.Enabled = true;
+
+                disableCommandAdd.execute();
+                enableCommandRemove.execute();
+                enableCommandUpdate.execute();
+
+                disableCommandTextUsername.execute();
+                /*btnThem.Enabled = false;
+                
                 btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;
-                txtUser.Enabled = false;
+                btnXoa.Enabled = true;*/
+                /*txtUser.Enabled = false;*/
             }
             catch
             {
@@ -134,11 +157,18 @@ namespace CuaHangPhanMem
             txtPass.Text = "";
             txtUser.Text = "";
             cbRole.SelectedItem = null;
-            btnCapNhat.Enabled = false;
+
+            enableCommandAdd.execute();
+            disableCommandRemove.execute();
+            disableCommandUpdate.execute();
+
+            enableCommandTextUsername.execute();
+            /*txtUser.Enabled = true;*/
+            /*btnCapNhat.Enabled = false;
             btnThem.Enabled = true;
             btnClear.Enabled = true;
             btnXoa.Enabled = false;
-            txtUser.Enabled = true;
+            */
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {

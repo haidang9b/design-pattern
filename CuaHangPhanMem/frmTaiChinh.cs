@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -65,20 +66,24 @@ namespace CuaHangPhanMem
         {
             try
             {
-                
-                string tongtiendoanhthu = txtMoney.Text;
-                string start = dptStart.Value.ToString("dd-MM-yyyy");
-                string end = dptEnd.Value.ToString("dd-MM-yyyy");
-                if (tongtiendoanhthu == "")
-                {
-                    MessageBox.Show("Phải thống kê mới có thể xuất file");
+                Thread th = new Thread(() =>
+               {
+                   string tongtiendoanhthu = txtMoney.Text;
+                   string start = dptStart.Value.ToString("dd-MM-yyyy");
+                   string end = dptEnd.Value.ToString("dd-MM-yyyy");
+                   if (tongtiendoanhthu == "")
+                   {
+                       MessageBox.Show("Phải thống kê mới có thể xuất file");
 
-                }
-                else
-                {
-                    frmReportDoanhthu reportDoanhthu = new frmReportDoanhthu(start, end, tongtiendoanhthu);
-                    reportDoanhthu.Show();
-                }
+                   }
+                   else
+                   {
+                       Form reportDoanhthu = new frmReportDoanhthu(start, end, tongtiendoanhthu);
+                       reportDoanhthu.Show();
+                   }
+               });
+                th.Start();
+                
             }
             catch
             {

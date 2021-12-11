@@ -10,6 +10,12 @@ namespace CuaHangPhanMem.Template
 {
     class AddAccount : IActionTemplate
     {
+        private bool isDone = false;
+
+        protected override bool hasDone()
+        {
+            return isDone;
+        }
         protected override void action()
         {
             var newForm = (frmAccount)form;
@@ -17,6 +23,7 @@ namespace CuaHangPhanMem.Template
             bool res = AccountDAO.Instance.Add(account);
             if (res)
             {
+                isDone = true;
                 MessageBox.Show("Thêm tài khoản thành công");
             }
             else
@@ -24,6 +31,8 @@ namespace CuaHangPhanMem.Template
                 MessageBox.Show("Thêm tài khoản thất bại");
             }
         }
+
+       
 
         protected override void ClearTextBox()
         {

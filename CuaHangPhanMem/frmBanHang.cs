@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -214,20 +215,24 @@ namespace CuaHangPhanMem
                 {
                     if (int.Parse(txtTotal.Text) != 0)
                     {
-                        bool rs = BillDAO.Instance.PaytheBill(idkh);
-                        if (rs)
+                        Thread th = new Thread(() =>
                         {
-                            MessageBox.Show("Thanh toán thành công. Khách hàng " + txtName.Text + " với đơn hàng trị giá " + txtTotal.Text + "VND. Hóa đơn sẽ hiện ngay sau đây");
-                            int last_bill = BillDAO.Instance.getMaxID();
-                            /*frmReportBill reportBill = new frmReportBill(last_bill, txtName.Text, txtTotal.Text);
-                            reportBill.Show();*/
-                            LoadKH();
-                            loadDataDonhang(idkh);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thanh toán thất bại");
-                        }
+                            bool rs = BillDAO.Instance.PaytheBill(idkh);
+                            if (rs)
+                            {
+                                MessageBox.Show("Thanh toán thành công. Khách hàng " + txtName.Text + " với đơn hàng trị giá " + txtTotal.Text + "VND. Hóa đơn sẽ hiện ngay sau đây");
+                                int last_bill = BillDAO.Instance.getMaxID();
+                                Form reportBill = new frmReportBill(last_bill, txtName.Text, txtTotal.Text);
+                                reportBill.Show();
+                                LoadKH();
+                                loadDataDonhang(idkh);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thanh toán thất bại");
+                            }
+                        });
+                        th.Start();
                     }
                     else
                     {

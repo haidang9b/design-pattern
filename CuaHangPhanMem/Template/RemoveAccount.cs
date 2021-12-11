@@ -10,6 +10,12 @@ namespace CuaHangPhanMem.Template
 {
     class RemoveAccount : IActionTemplate
     {
+        private bool isDone = false;
+
+        protected override bool hasDone()
+        {
+            return isDone;
+        }
         protected override void action()
         {
             var newForm = (frmAccount)form;
@@ -20,6 +26,7 @@ namespace CuaHangPhanMem.Template
             {
                 if (AccountDAO.Instance.Delete(account.ID))
                 {
+                    isDone = true;
                     MessageBox.Show("Xóa tài khoản thành công !!");
 
                 }

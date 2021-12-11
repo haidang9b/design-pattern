@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 namespace CuaHangPhanMem.Command
 {
-    public abstract class ICommandButton
+    public abstract class ICommandControl
     {
-        protected Button[] buttons;
-        public ICommandButton(Button[] buttons)
+        protected Control[] buttons;
+        public ICommandControl(params Control[] buttons)
         {
             this.buttons = buttons;
         }
@@ -19,9 +19,9 @@ namespace CuaHangPhanMem.Command
 
     }
 
-    public class EnableCommand : ICommandButton
+    public class EnableCommand : ICommandControl
     {
-        public EnableCommand(params Button[] buttons) : base(buttons) { }
+        public EnableCommand(params Control[] buttons) : base(buttons) { }
         public override void execute()
         {
             foreach (var btn in buttons)
@@ -31,9 +31,9 @@ namespace CuaHangPhanMem.Command
         }
     }
 
-    public class DisableCommand : ICommandButton
+    public class DisableCommand : ICommandControl
     {
-        public DisableCommand(params Button[] buttons) : base(buttons) { }
+        public DisableCommand(params Control[] buttons) : base(buttons) { }
         public override void execute()
         {
             foreach (var btn in buttons)

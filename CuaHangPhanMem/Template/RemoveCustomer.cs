@@ -10,6 +10,12 @@ namespace CuaHangPhanMem.Template
 {
     class RemoveCustomer : IActionTemplate
     {
+        private bool isDone = false;
+
+        protected override bool hasDone()
+        {
+            return isDone;
+        }
         protected override void action()
         {
             var newForm = (frKhachHang)form;
@@ -20,6 +26,7 @@ namespace CuaHangPhanMem.Template
             {
                 if (CustomerDAO.Instance.Delete(customer.Id))
                 {
+                    isDone = true;
                     MessageBox.Show("Xóa khách hàng thành công !!");
 
                 }

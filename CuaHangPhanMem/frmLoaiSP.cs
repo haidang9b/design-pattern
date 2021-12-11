@@ -18,6 +18,10 @@ namespace CuaHangPhanMem
     public partial class frmLoaiSP : Form
     {
         ActionRemoteControl remote;
+        ICommandControl enableCommandAdd, disableCommandAdd;
+        ICommandControl enableCommandRemove, disableCommandRemove;
+        ICommandControl enableCommandUpdate, disableCommandUpdate;
+        ICommandControl enableCommandSearch, disableCommandSearch;
         public frmLoaiSP()
         {
             InitializeComponent();
@@ -29,11 +33,24 @@ namespace CuaHangPhanMem
             remote.SetCommandAction((int)TypeAction.Add, add);
             remote.SetCommandAction((int)TypeAction.Remove, remove);
             remote.SetCommandAction((int)TypeAction.Update, update);
+
+            enableCommandAdd = new EnableCommand(btnThem);
+            disableCommandAdd = new DisableCommand(btnThem);
+
+            enableCommandRemove = new EnableCommand(btnXoa);
+            disableCommandRemove = new DisableCommand(btnXoa);
+
+            enableCommandUpdate = new EnableCommand(btnCapNhat);
+            disableCommandUpdate = new DisableCommand(btnCapNhat);
+
+            enableCommandSearch = new EnableCommand(btnSearch);
+            disableCommandSearch = new DisableCommand(btnSearch);
         }
 
         private void frmLoaiSP_Load(object sender, EventArgs e)
         {
             loadProductType();
+            clearText();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -102,10 +119,16 @@ namespace CuaHangPhanMem
             {
                 txtName.Text = this.dgvLoaiSanPham.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtID.Text = this.dgvLoaiSanPham.Rows[e.RowIndex].Cells[0].Value.ToString();
-                btnThem.Enabled = false;
+
+                disableCommandAdd.execute();
+                disableCommandSearch.execute();
+                enableCommandRemove.execute();
+                enableCommandUpdate.execute();
+
+                /*btnThem.Enabled = false;
                 btnClear.Enabled = true;
                 btnXoa.Enabled = true;
-                btnSearch.Enabled = false;
+                btnSearch.Enabled = false;*/
             }
             catch
             {
@@ -117,10 +140,16 @@ namespace CuaHangPhanMem
         {
             txtName.Text = "";
             txtID.Text = "";
-            btnThem.Enabled = true;
+
+            enableCommandAdd.execute();
+            enableCommandSearch.execute();
+            disableCommandRemove.execute();
+            disableCommandUpdate.execute();
+
+            /*btnThem.Enabled = true;
             btnCapNhat.Enabled = true;
             btnXoa.Enabled = false;
-            btnSearch.Enabled = true;
+            btnSearch.Enabled = true;*/
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)

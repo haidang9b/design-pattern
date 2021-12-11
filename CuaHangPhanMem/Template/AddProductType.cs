@@ -10,12 +10,20 @@ namespace CuaHangPhanMem.Template
 {
     class AddProductType : IActionTemplate
     {
+        private bool isDone = false;
+
+        protected override bool hasDone()
+        {
+            return isDone;
+        }
         protected override void action()
         {
+
             var newForm = (frmLoaiSP)form;
             var item = newForm.GetProductTypeTextBox();
             if (ProductTypeDAO.Instance.Add(item.Name))
             {
+                isDone = true;
                 MessageBox.Show("Thêm loại phần mềm thành công !!");
             }
             else

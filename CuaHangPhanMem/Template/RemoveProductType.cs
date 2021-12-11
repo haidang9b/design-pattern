@@ -10,6 +10,12 @@ namespace CuaHangPhanMem.Template
 {
     class RemoveProductType : IActionTemplate
     {
+        private bool isDone = false;
+
+        protected override bool hasDone()
+        {
+            return isDone;
+        }
         protected override void action()
         {
             var newForm = (frmLoaiSP)form;
@@ -20,6 +26,7 @@ namespace CuaHangPhanMem.Template
             {
                 if (ProductTypeDAO.Instance.Delete(item.Id))
                 {
+                    isDone = true;
                     MessageBox.Show("Xóa loại phần mềm thành công !!");
                 }
                 else
