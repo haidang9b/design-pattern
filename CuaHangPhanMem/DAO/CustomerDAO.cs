@@ -26,7 +26,7 @@ namespace CuaHangPhanMem.DAO
         public List<Customer> LoadAllCustomerVIP(int start, int end)
         {
             List<Customer> list = new List<Customer>();
-            string query = "SELECT MAKH,TENKH,SDTKH,DIACHI,TONGTIEN, EMAIL FROM KHACHHANG WHERE TONGTIEN>= @start AND TONGTIEN < @end";
+            string query = "SELECT MAKH,TENKH,SDTKH,DIACHI,TONGTIEN, EMAIL FROM KHACHHANG WHERE TONGTIEN>= @start AND TONGTIEN < @end ";
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { start , end});
             foreach (DataRow item in data.Rows)
             {
@@ -49,7 +49,7 @@ namespace CuaHangPhanMem.DAO
         }
         public bool Add(Customer customer)
         {
-            string query = "INSERT INTO KHACHHANG(TENKH,SDTKH,DIACHI,TONGTIEN, EMAIL ) VALUES( @name , @sdt , @diachi ,0, @mail)";
+            string query = "INSERT INTO KHACHHANG(TENKH,SDTKH,DIACHI,TONGTIEN, EMAIL ) VALUES( @name , @sdt , @diachi ,0, @mail )";
             int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { customer.Name, customer.Phone, customer.Add, customer.Email});
             return rs > 0;
         }
@@ -71,7 +71,7 @@ namespace CuaHangPhanMem.DAO
         public List<Customer> SearchCustomerByPhone(int phone)
         {
             List<Customer> list = new List<Customer>();
-            string query = "SELECT MAKH,TENKH,SDTKH,DIACHI,TONGTIEN, EMAIL FROM KHACHHANG WHERE SDTKH LIKE @phone";
+            string query = "SELECT MAKH,TENKH,SDTKH,DIACHI,TONGTIEN, EMAIL FROM KHACHHANG WHERE SDTKH LIKE @phone ";
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { "%"+phone+"%"});
             foreach (DataRow item in data.Rows)
             {
