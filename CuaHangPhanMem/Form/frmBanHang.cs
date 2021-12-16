@@ -35,6 +35,13 @@ namespace CuaHangPhanMem
         {
             var data = BillDAO.Instance.loadAllBillViewNonePay(id);
             dgvBillInfo.DataSource = data;
+            dgvBillInfo.Columns[0].HeaderText = "Tên sản phẩm";
+            dgvBillInfo.Columns[1].HeaderText = "Giá";
+            dgvBillInfo.Columns[2].HeaderText = "Số lượng";
+            dgvBillInfo.Columns[3].HeaderText = "Tổng tiền";
+            dgvBillInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBillInfo.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBillInfo.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             int totalPrice = 0;
             foreach (ViewBillInfo item in data)
             {
@@ -79,8 +86,8 @@ namespace CuaHangPhanMem
            
             if (new ValidatorContext(name, ValidatorType.String).runValidation() && new ValidatorContext(sdt, ValidatorType.Phone).runValidation() && new ValidatorContext(dc, ValidatorType.String).runValidation())
             {
-                try
-                {
+                /*try
+                {*/
                     if (CustomerDAO.Instance.Add(new Customer(0, name, sdt, dc, 0, "")))
                     {
                         MessageBox.Show("Thêm khách hàng thành công !!");
@@ -89,11 +96,11 @@ namespace CuaHangPhanMem
                     {
                         MessageBox.Show("Thêm khách hàng mềm thất bại!!");
                     }
-                }
+               /* }
                 catch
                 {
                     MessageBox.Show("Thêm khách hàng thất bại!!");
-                }
+                }*/
             }
             else
             {
@@ -105,6 +112,16 @@ namespace CuaHangPhanMem
         private void LoadKH()
         {
             dgvKhachHang.DataSource = CustomerDAO.Instance.GetCustomers();
+            dgvKhachHang.Columns[0].HeaderText = "ID";
+            dgvKhachHang.Columns[1].HeaderText = "Họ và Tên";
+            dgvKhachHang.Columns[2].HeaderText = "Số điện thoại";
+            dgvKhachHang.Columns[3].HeaderText = "Địa chỉ";
+            dgvKhachHang.Columns[4].HeaderText = "Tổng tiền";
+            dgvKhachHang.Columns[5].HeaderText = "Email";
+            dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKhachHang.Columns[0].Width = 30;
+            dgvKhachHang.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvKhachHang.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -275,7 +292,7 @@ namespace CuaHangPhanMem
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-
+            clearTextKH();
         }
     }
 }

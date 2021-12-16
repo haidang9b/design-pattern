@@ -120,6 +120,16 @@ namespace CuaHangPhanMem
         public void LoadListProduct()
         {
             dgvSanPham.DataSource = ProductDAO.Instance.GetProducts();
+            dgvSanPham.Columns[0].HeaderText = "ID";
+            dgvSanPham.Columns[1].HeaderText = "Tên sản phẩm";
+            dgvSanPham.Columns[2].HeaderText = "Loại";
+            dgvSanPham.Columns[3].HeaderText = "Số lượng";
+            dgvSanPham.Columns[4].HeaderText = "Giá bán";
+
+            dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSanPham.Columns[0].Width = 30;
+            dgvSanPham.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvSanPham.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         ///xoa 

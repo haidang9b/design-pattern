@@ -27,6 +27,15 @@ namespace CuaHangPhanMem
         private void loadAllListBill()
         {
             dgvDonHang.DataSource = BillDAO.Instance.getAllBillView();
+            dgvDonHang.Columns[0].HeaderText = "ID";
+            dgvDonHang.Columns[1].HeaderText = "Họ và Tên";
+            dgvDonHang.Columns[2].HeaderText = "Số điện thoại";
+            dgvDonHang.Columns[3].HeaderText = "Ngày đặt";
+            dgvDonHang.Columns[4].HeaderText = "Tổng tiền";
+            dgvDonHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDonHang.Columns[0].Width = 30;
+            dgvDonHang.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvDonHang.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         private void dgvDonHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -52,6 +61,13 @@ namespace CuaHangPhanMem
         public void LoadRightTable(int id)
         {
             dgvCTDH.DataSource = BillDAO.Instance.loadAllBillViewByIDHD(id);
+            dgvCTDH.Columns[0].HeaderText = "Tên phần mềm";
+            dgvCTDH.Columns[1].HeaderText = "Giá bán";
+            dgvCTDH.Columns[2].HeaderText = "Số lượng";
+            dgvCTDH.Columns[3].HeaderText = "Tổng tiền";
+            dgvCTDH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCTDH.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvCTDH.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         //click search

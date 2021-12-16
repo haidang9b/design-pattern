@@ -51,6 +51,11 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Microsoft Office\root\Office16\DCF\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1427.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -135,106 +140,106 @@
     <Compile Include="Factory\FactorySubForm.cs" />
     <Compile Include="Factory\MSSQLDbFactory.cs" />
     <Compile Include="Factory\MySQLDbFactory.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Form\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Form\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNotifyEmail.cs">
+    <Compile Include="Form\frmNotifyEmail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNotifyEmail.Designer.cs">
+    <Compile Include="Form\frmNotifyEmail.Designer.cs">
       <DependentUpon>frmNotifyEmail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frKhachHang.cs">
+    <Compile Include="Form\frKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frKhachHang.Designer.cs">
+    <Compile Include="Form\frKhachHang.Designer.cs">
       <DependentUpon>frKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAccount.cs">
+    <Compile Include="Form\frmAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAccount.Designer.cs">
+    <Compile Include="Form\frmAccount.Designer.cs">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBanHang.cs">
+    <Compile Include="Form\frmBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBanHang.Designer.cs">
+    <Compile Include="Form\frmBanHang.Designer.cs">
       <DependentUpon>frmBanHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInfoApp.cs">
+    <Compile Include="Form\frmInfoApp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInfoApp.Designer.cs">
+    <Compile Include="Form\frmInfoApp.Designer.cs">
       <DependentUpon>frmInfoApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLoaiSP.cs">
+    <Compile Include="Form\frmLoaiSP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLoaiSP.Designer.cs">
+    <Compile Include="Form\frmLoaiSP.Designer.cs">
       <DependentUpon>frmLoaiSP.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReportBill.cs">
+    <Compile Include="Form\frmReportBill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReportBill.Designer.cs">
+    <Compile Include="Form\frmReportBill.Designer.cs">
       <DependentUpon>frmReportBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReportDoanhthu.cs">
+    <Compile Include="Form\frmReportDoanhthu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReportDoanhthu.Designer.cs">
+    <Compile Include="Form\frmReportDoanhthu.Designer.cs">
       <DependentUpon>frmReportDoanhthu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReportSanpham.cs">
+    <Compile Include="Form\frmReportSanpham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReportSanpham.Designer.cs">
+    <Compile Include="Form\frmReportSanpham.Designer.cs">
       <DependentUpon>frmReportSanpham.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSanPham.cs">
+    <Compile Include="Form\frmSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSanPham.Designer.cs">
+    <Compile Include="Form\frmSanPham.Designer.cs">
       <DependentUpon>frmSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTaiChinh.cs">
+    <Compile Include="Form\frmTaiChinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTaiChinh.Designer.cs">
+    <Compile Include="Form\frmTaiChinh.Designer.cs">
       <DependentUpon>frmTaiChinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThongKeSP.cs">
+    <Compile Include="Form\frmThongKeSP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThongKeSP.Designer.cs">
+    <Compile Include="Form\frmThongKeSP.Designer.cs">
       <DependentUpon>frmThongKeSP.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTimKiemDonHang.cs">
+    <Compile Include="Form\frmTimKiemDonHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTimKiemDonHang.Designer.cs">
+    <Compile Include="Form\frmTimKiemDonHang.Designer.cs">
       <DependentUpon>frmTimKiemDonHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="fromHome.cs">
+    <Compile Include="Form\fromHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fromHome.Designer.cs">
+    <Compile Include="Form\fromHome.Designer.cs">
       <DependentUpon>fromHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Form\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Form\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Form\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="Form\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Factory\FactoryLogin.cs" />
@@ -285,55 +290,55 @@
     <Compile Include="Template\UpdateCustomer.cs" />
     <Compile Include="Template\UpdateProduct.cs" />
     <Compile Include="Template\UpdateProductType.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Form\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frKhachHang.resx">
+    <EmbeddedResource Include="Form\frKhachHang.resx">
       <DependentUpon>frKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAccount.resx">
+    <EmbeddedResource Include="Form\frmAccount.resx">
       <DependentUpon>frmAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBanHang.resx">
+    <EmbeddedResource Include="Form\frmBanHang.resx">
       <DependentUpon>frmBanHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInfoApp.resx">
+    <EmbeddedResource Include="Form\frmInfoApp.resx">
       <DependentUpon>frmInfoApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLoaiSP.resx">
+    <EmbeddedResource Include="Form\frmLoaiSP.resx">
       <DependentUpon>frmLoaiSP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNotifyEmail.resx">
+    <EmbeddedResource Include="Form\frmNotifyEmail.resx">
       <DependentUpon>frmNotifyEmail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReportBill.resx">
+    <EmbeddedResource Include="Form\frmReportBill.resx">
       <DependentUpon>frmReportBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReportDoanhthu.resx">
+    <EmbeddedResource Include="Form\frmReportDoanhthu.resx">
       <DependentUpon>frmReportDoanhthu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReportSanpham.resx">
+    <EmbeddedResource Include="Form\frmReportSanpham.resx">
       <DependentUpon>frmReportSanpham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSanPham.resx">
+    <EmbeddedResource Include="Form\frmSanPham.resx">
       <DependentUpon>frmSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTaiChinh.resx">
+    <EmbeddedResource Include="Form\frmTaiChinh.resx">
       <DependentUpon>frmTaiChinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThongKeSP.resx">
+    <EmbeddedResource Include="Form\frmThongKeSP.resx">
       <DependentUpon>frmThongKeSP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTimKiemDonHang.resx">
+    <EmbeddedResource Include="Form\frmTimKiemDonHang.resx">
       <DependentUpon>frmTimKiemDonHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fromHome.resx">
+    <EmbeddedResource Include="Form\fromHome.resx">
       <DependentUpon>fromHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Form\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="Form\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

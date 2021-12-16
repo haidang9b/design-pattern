@@ -88,6 +88,13 @@ namespace CuaHangPhanMem
         public void loadProductType()
         {
             dgvLoaiSanPham.DataSource = ProductTypeDAO.Instance.LoadAllProductType();
+            dgvLoaiSanPham.Columns[0].HeaderText = "ID";
+            dgvLoaiSanPham.Columns[1].HeaderText = "Tên Loại";
+
+            dgvLoaiSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLoaiSanPham.Columns[0].Width = 100;
+            dgvLoaiSanPham.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvLoaiSanPham.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

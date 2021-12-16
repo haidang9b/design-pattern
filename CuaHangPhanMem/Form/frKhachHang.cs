@@ -46,12 +46,23 @@ namespace CuaHangPhanMem
 
         private void frKhachHang_Load(object sender, EventArgs e)
         {
-            loadDatacustomer();
+            LoadDataCustomer();
             clearText();
         }
-        public void loadDatacustomer()
+        public void LoadDataCustomer()
         {
             dgvKhachHang.DataSource = CustomerDAO.Instance.GetCustomers();
+            dgvKhachHang.Columns[0].HeaderText = "ID";
+            dgvKhachHang.Columns[1].HeaderText = "Họ và tên";
+            dgvKhachHang.Columns[2].HeaderText = "Số điện thoại";
+            dgvKhachHang.Columns[3].HeaderText = "Địa chỉ";
+            dgvKhachHang.Columns[4].HeaderText = "Tổng tiền";
+            dgvKhachHang.Columns[5].HeaderText = "Email";
+
+            dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKhachHang.Columns[0].Width = 30;
+            dgvKhachHang.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvKhachHang.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         

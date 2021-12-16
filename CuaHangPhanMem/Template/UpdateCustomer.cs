@@ -42,7 +42,7 @@ namespace CuaHangPhanMem.Template
         protected override void LoadData()
         {
             var newForm = (frKhachHang)form;
-            newForm.loadDatacustomer();
+            newForm.LoadDataCustomer();
         }
     }
 }

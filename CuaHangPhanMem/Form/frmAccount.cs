@@ -58,6 +58,14 @@ namespace CuaHangPhanMem
         public void LoadAllAccount()
         {
             dataGridView1.DataSource = AccountDAO.Instance.GetAccounts();
+            dataGridView1.Columns[0].HeaderText = "ID";
+            dataGridView1.Columns[1].HeaderText = "Tài khoản";
+            dataGridView1.Columns[2].HeaderText = "Mật khẩu";
+            dataGridView1.Columns[3].HeaderText = "Quyền";
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         public Account GetAccountTextBox()

@@ -30,12 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelRightItem = new System.Windows.Forms.Panel();
+            this.btnCapNhat = new FontAwesome.Sharp.IconButton();
+            this.btnClear = new FontAwesome.Sharp.IconButton();
+            this.btnXoa = new FontAwesome.Sharp.IconButton();
+            this.btnThem = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lb = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtTien = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,12 +62,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
-            this.btnCapNhat = new FontAwesome.Sharp.IconButton();
-            this.btnClear = new FontAwesome.Sharp.IconButton();
-            this.btnXoa = new FontAwesome.Sharp.IconButton();
-            this.btnThem = new FontAwesome.Sharp.IconButton();
-            this.lb = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.panelRightItem.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -83,6 +83,74 @@
             this.panelRightItem.Padding = new System.Windows.Forms.Padding(0, 0, 60, 0);
             this.panelRightItem.Size = new System.Drawing.Size(200, 582);
             this.panelRightItem.TabIndex = 2;
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCapNhat.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnCapNhat.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.btnCapNhat.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnCapNhat.IconSize = 30;
+            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhat.Location = new System.Drawing.Point(0, 285);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Rotation = 0D;
+            this.btnCapNhat.Size = new System.Drawing.Size(140, 59);
+            this.btnCapNhat.TabIndex = 4;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClear.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnClear.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnClear.IconColor = System.Drawing.Color.SandyBrown;
+            this.btnClear.IconSize = 30;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(0, 226);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Rotation = 0D;
+            this.btnClear.Size = new System.Drawing.Size(140, 59);
+            this.btnClear.TabIndex = 3;
+            this.btnClear.Text = "Nhập lại";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnXoa.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnXoa.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            this.btnXoa.IconColor = System.Drawing.Color.Red;
+            this.btnXoa.IconSize = 30;
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(0, 167);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Rotation = 0D;
+            this.btnXoa.Size = new System.Drawing.Size(140, 59);
+            this.btnXoa.TabIndex = 2;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnThem.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnThem.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnThem.IconColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnThem.IconSize = 30;
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThem.Location = new System.Drawing.Point(0, 108);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Rotation = 0D;
+            this.btnThem.Size = new System.Drawing.Size(140, 59);
+            this.btnThem.TabIndex = 1;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panel1
             // 
@@ -151,6 +219,25 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 60, 0);
             this.panel2.Size = new System.Drawing.Size(280, 582);
             this.panel2.TabIndex = 18;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtEmail.Location = new System.Drawing.Point(0, 416);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(220, 20);
+            this.txtEmail.TabIndex = 35;
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb.Location = new System.Drawing.Point(0, 403);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(39, 13);
+            this.lb.TabIndex = 34;
+            this.lb.Text = "EMAIL";
+            this.lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
@@ -338,93 +425,6 @@
             this.dgvKhachHang.Size = new System.Drawing.Size(483, 461);
             this.dgvKhachHang.TabIndex = 23;
             this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCapNhat.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnCapNhat.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            this.btnCapNhat.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnCapNhat.IconSize = 30;
-            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(0, 285);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Rotation = 0D;
-            this.btnCapNhat.Size = new System.Drawing.Size(140, 59);
-            this.btnCapNhat.TabIndex = 4;
-            this.btnCapNhat.Text = "Cập nhật";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClear.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnClear.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.btnClear.IconColor = System.Drawing.Color.SandyBrown;
-            this.btnClear.IconSize = 30;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(0, 226);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Rotation = 0D;
-            this.btnClear.Size = new System.Drawing.Size(140, 59);
-            this.btnClear.TabIndex = 3;
-            this.btnClear.Text = "Nhập lại";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnXoa.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnXoa.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            this.btnXoa.IconColor = System.Drawing.Color.Red;
-            this.btnXoa.IconSize = 30;
-            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(0, 167);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Rotation = 0D;
-            this.btnXoa.Size = new System.Drawing.Size(140, 59);
-            this.btnXoa.TabIndex = 2;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnThem.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnThem.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnThem.IconColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnThem.IconSize = 30;
-            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(0, 108);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Rotation = 0D;
-            this.btnThem.Size = new System.Drawing.Size(140, 59);
-            this.btnThem.TabIndex = 1;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // lb
-            // 
-            this.lb.AutoSize = true;
-            this.lb.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb.Location = new System.Drawing.Point(0, 403);
-            this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(39, 13);
-            this.lb.TabIndex = 34;
-            this.lb.Text = "EMAIL";
-            this.lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtEmail.Location = new System.Drawing.Point(0, 416);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(220, 20);
-            this.txtEmail.TabIndex = 35;
             // 
             // frKhachHang
             // 
