@@ -14,6 +14,7 @@ namespace CuaHangPhanMem
 {
     public partial class frmThongKeSP : Form
     {
+        private bool isRun = false;
         public frmThongKeSP()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace CuaHangPhanMem
         {
             try
             {
+                isRun = true;
                 string start = dptStart.Value.ToString("dd-MM-yyyy");
                 string end = dptEnd.Value.ToString("dd-MM-yyyy");
                 MessageBox.Show("bắt đầu:" + start + " kết thúc" + end);
@@ -58,6 +60,11 @@ namespace CuaHangPhanMem
         {
             try
             {
+                if(isRun == false)
+                {
+                    MessageBox.Show("Vui lòng thống kê sản phẩm trước khi xuất file");
+                    return;
+                }
                 Thread th = new Thread(() =>
                 {
                     string start = dptStart.Value.ToString("dd-MM-yyyy");

@@ -18,10 +18,14 @@ namespace CuaHangPhanMem
     public partial class frmLoaiSP : Form
     {
         ActionRemoteControl remote;
-        ICommandControl enableCommandAdd, disableCommandAdd;
-        ICommandControl enableCommandRemove, disableCommandRemove;
-        ICommandControl enableCommandUpdate, disableCommandUpdate;
-        ICommandControl enableCommandSearch, disableCommandSearch;
+
+        /*Start command enable disable*/
+        RemoteCommandControl enableCommandAddSearch;
+        RemoteCommandControl disableCommandAddSearch;
+        RemoteCommandControl enableCommandRemoveUpdate;
+        RemoteCommandControl disableCommandRemoveUpdate;
+        /*End command enable disable*/
+
         public frmLoaiSP()
         {
             InitializeComponent();
@@ -34,17 +38,11 @@ namespace CuaHangPhanMem
             remote.SetCommandAction((int)TypeAction.Remove, remove);
             remote.SetCommandAction((int)TypeAction.Update, update);
 
-            enableCommandAdd = new EnableCommand(btnThem);
-            disableCommandAdd = new DisableCommand(btnThem);
+            enableCommandAddSearch = new RemoteCommandControl(new EnableCommand(btnThem), new EnableCommand(btnSearch));
+            disableCommandAddSearch = new RemoteCommandControl(new DisableCommand(btnThem), new DisableCommand(btnSearch));
 
-            enableCommandRemove = new EnableCommand(btnXoa);
-            disableCommandRemove = new DisableCommand(btnXoa);
-
-            enableCommandUpdate = new EnableCommand(btnCapNhat);
-            disableCommandUpdate = new DisableCommand(btnCapNhat);
-
-            enableCommandSearch = new EnableCommand(btnSearch);
-            disableCommandSearch = new DisableCommand(btnSearch);
+            enableCommandRemoveUpdate = new RemoteCommandControl(new EnableCommand(btnXoa), new EnableCommand(btnCapNhat));
+            disableCommandRemoveUpdate = new RemoteCommandControl(new DisableCommand(btnXoa), new DisableCommand(btnCapNhat));
         }
 
         private void frmLoaiSP_Load(object sender, EventArgs e)
@@ -127,15 +125,9 @@ namespace CuaHangPhanMem
                 txtName.Text = this.dgvLoaiSanPham.Rows[e.RowIndex].Cells[1].Value.ToString();
                 txtID.Text = this.dgvLoaiSanPham.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                disableCommandAdd.execute();
-                disableCommandSearch.execute();
-                enableCommandRemove.execute();
-                enableCommandUpdate.execute();
+                disableCommandAddSearch.run();
+                enableCommandRemoveUpdate.run();
 
-                /*btnThem.Enabled = false;
-                btnClear.Enabled = true;
-                btnXoa.Enabled = true;
-                btnSearch.Enabled = false;*/
             }
             catch
             {
@@ -148,10 +140,8 @@ namespace CuaHangPhanMem
             txtName.Text = "";
             txtID.Text = "";
 
-            enableCommandAdd.execute();
-            enableCommandSearch.execute();
-            disableCommandRemove.execute();
-            disableCommandUpdate.execute();
+            enableCommandAddSearch.run();
+            disableCommandRemoveUpdate.run();
 
             /*btnThem.Enabled = true;
             btnCapNhat.Enabled = true;

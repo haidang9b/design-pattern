@@ -14,6 +14,7 @@ namespace CuaHangPhanMem
 {
     public partial class frmTaiChinh : Form
     {
+        
         public frmTaiChinh()
         {
             InitializeComponent();

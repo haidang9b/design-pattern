@@ -19,10 +19,14 @@ namespace CuaHangPhanMem
     {
         ActionRemoteControl remote;
 
-        ICommandControl enableCommandAdd, disableCommandAdd;
-        ICommandControl enableCommandRemove, disableCommandRemove;
-        ICommandControl enableCommandUpdate, disableCommandUpdate;
-        ICommandControl enableCommandTextUsername, disableCommandTextUsername;
+
+        /*Start command enable disable*/
+        RemoteCommandControl enableCommandAddTxtUser;
+        RemoteCommandControl disableCommandAddTxtUser;
+        RemoteCommandControl enableCommandRemoveUpdate;
+        RemoteCommandControl disableCommandRemoveUpdate;
+        /*End command enable disable*/
+
         public frmAccount()
         {
             InitializeComponent();
@@ -35,17 +39,11 @@ namespace CuaHangPhanMem
             remote.SetCommandAction((int)TypeAction.Remove, remove);
             remote.SetCommandAction((int)TypeAction.Update, update);
 
-            enableCommandAdd = new EnableCommand(btnThem);
-            disableCommandAdd = new DisableCommand(btnThem);
+            enableCommandAddTxtUser = new RemoteCommandControl( new EnableCommand(btnThem), new EnableCommand(txtUser));
+            disableCommandAddTxtUser = new RemoteCommandControl(new DisableCommand(btnThem), new DisableCommand(txtUser));
 
-            enableCommandRemove = new EnableCommand(btnXoa);
-            disableCommandRemove = new DisableCommand(btnXoa);
-
-            enableCommandUpdate = new EnableCommand(btnCapNhat);
-            disableCommandUpdate = new DisableCommand(btnCapNhat);
-
-            enableCommandTextUsername = new EnableCommand(txtUser);
-            disableCommandTextUsername = new DisableCommand(txtUser);
+            enableCommandRemoveUpdate = new RemoteCommandControl(new EnableCommand(btnXoa), new EnableCommand(btnCapNhat));
+            disableCommandRemoveUpdate = new RemoteCommandControl(new DisableCommand(btnXoa), new DisableCommand(btnCapNhat));
         }
 
        
@@ -137,16 +135,9 @@ namespace CuaHangPhanMem
                 txtPass.Text = this.dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
                 cbRole.SelectedIndex = int.Parse(this.dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
 
-                disableCommandAdd.execute();
-                enableCommandRemove.execute();
-                enableCommandUpdate.execute();
+                disableCommandAddTxtUser.run();
+                enableCommandRemoveUpdate.run();
 
-                disableCommandTextUsername.execute();
-                /*btnThem.Enabled = false;
-                
-                btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;*/
-                /*txtUser.Enabled = false;*/
             }
             catch
             {
@@ -166,17 +157,9 @@ namespace CuaHangPhanMem
             txtUser.Text = "";
             cbRole.SelectedItem = null;
 
-            enableCommandAdd.execute();
-            disableCommandRemove.execute();
-            disableCommandUpdate.execute();
+            enableCommandAddTxtUser.run();
+            disableCommandRemoveUpdate.run();
 
-            enableCommandTextUsername.execute();
-            /*txtUser.Enabled = true;*/
-            /*btnCapNhat.Enabled = false;
-            btnThem.Enabled = true;
-            btnClear.Enabled = true;
-            btnXoa.Enabled = false;
-            */
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {

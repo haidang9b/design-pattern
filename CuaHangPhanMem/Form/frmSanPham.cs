@@ -18,10 +18,14 @@ namespace CuaHangPhanMem
     public partial class frmSanPham : Form
     {
         ActionRemoteControl remote;
-        ICommandControl enableCommandAdd, disableCommandAdd;
-        ICommandControl enableCommandRemove, disableCommandRemove;
-        ICommandControl enableCommandUpdate, disableCommandUpdate;
-        ICommandControl enableCommandSearch, disableCommandSearch;
+
+        /*Start command enable disable*/
+        RemoteCommandControl enableCommandAddSearch;
+        RemoteCommandControl disableCommandAddSearch;
+        RemoteCommandControl enableCommandRemoveUpdate;
+        RemoteCommandControl disableCommandRemoveUpdate;
+        /*End command enable disable*/
+
         public frmSanPham()
         {
             InitializeComponent();
@@ -33,18 +37,11 @@ namespace CuaHangPhanMem
             remote.SetCommandAction((int)TypeAction.Remove, remove);
             remote.SetCommandAction((int)TypeAction.Update, update);
 
+            enableCommandAddSearch = new RemoteCommandControl(new EnableCommand(btnThem), new EnableCommand(btnSearch));
+            disableCommandAddSearch = new RemoteCommandControl(new DisableCommand(btnThem), new DisableCommand(btnSearch));
 
-            enableCommandAdd = new EnableCommand(btnThem);
-            disableCommandAdd = new DisableCommand(btnThem);
-
-            enableCommandRemove = new EnableCommand(btnXoa);
-            disableCommandRemove = new DisableCommand(btnXoa);
-
-            enableCommandUpdate = new EnableCommand(btnCapNhat);
-            disableCommandUpdate = new DisableCommand(btnCapNhat);
-
-            enableCommandSearch = new EnableCommand(btnSearch);
-            disableCommandSearch = new DisableCommand(btnSearch);
+            enableCommandRemoveUpdate = new RemoteCommandControl(new EnableCommand(btnXoa), new EnableCommand(btnCapNhat));
+            disableCommandRemoveUpdate = new RemoteCommandControl(new DisableCommand(btnXoa), new DisableCommand(btnCapNhat));
         }
         
         private void frmSanPham_Load(object sender, EventArgs e)
@@ -70,12 +67,15 @@ namespace CuaHangPhanMem
             int productType = selected.Id;
             int slt = 0;
             int price = 0;
-
-            try
+            if(txtID.Text.Length > 0)
             {
                 id = int.Parse(txtID.Text);
+            }
+            try
+            {
                 slt = int.Parse(txtSLT.Text);
                 price = int.Parse(txtDonGia.Text);
+                
             }
             catch
             {
@@ -104,9 +104,6 @@ namespace CuaHangPhanMem
                 }
                 else
                 {
-                    /*IActionTemplate template = new AddProduct();
-                    template.form = this;
-                    template.runAction();*/
                     remote.buttonWasPressed((int)TypeAction.Add);
                 }
             }
@@ -164,15 +161,8 @@ namespace CuaHangPhanMem
             txtName.Text = "";
             txtSLT.Text = "";
 
-
-            /*btnThem.Enabled = true;
-            btnCapNhat.Enabled = true;
-            btnXoa.Enabled = false;
-            btnSearch.Enabled = true;*/
-            enableCommandAdd.execute();
-            enableCommandSearch.execute();
-            disableCommandRemove.execute();
-            disableCommandUpdate.execute();
+            enableCommandAddSearch.run();
+            disableCommandRemoveUpdate.run();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -223,15 +213,8 @@ namespace CuaHangPhanMem
                 txtSLT.Text = this.dgvSanPham.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtDonGia.Text = this.dgvSanPham.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-                disableCommandAdd.execute();
-                disableCommandSearch.execute();
-                enableCommandRemove.execute();
-                enableCommandUpdate.execute();
-
-               /* btnThem.Enabled = false;
-                btnClear.Enabled = true;
-                btnXoa.Enabled = true;
-                btnSearch.Enabled = false;*/
+                disableCommandAddSearch.run();
+                enableCommandRemoveUpdate.run();
             }
             catch
             {

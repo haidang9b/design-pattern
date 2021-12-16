@@ -7,12 +7,28 @@ using System.Windows.Forms;
 
 namespace CuaHangPhanMem.Command
 {
+    public class RemoteCommandControl
+    {
+        public ICommandControl[] commands;
+        public RemoteCommandControl(params ICommandControl[] buttons)
+        {
+            this.commands = buttons;
+        }
+        public void run()
+        {
+            foreach(var c in commands)
+            {
+                c.execute();
+            }
+        }
+    }
+
     public abstract class ICommandControl
     {
-        protected Control[] buttons;
-        public ICommandControl(params Control[] buttons)
+        protected Control button;
+        public ICommandControl(Control button)
         {
-            this.buttons = buttons;
+            this.button = button;
         }
 
         public abstract void execute();
@@ -21,25 +37,20 @@ namespace CuaHangPhanMem.Command
 
     public class EnableCommand : ICommandControl
     {
-        public EnableCommand(params Control[] buttons) : base(buttons) { }
+        public EnableCommand(Control button) : base(button) { }
         public override void execute()
         {
-            foreach (var btn in buttons)
-            {
-                btn.Enabled = true;
-            }
+            button.Enabled = true;
+         
         }
     }
 
     public class DisableCommand : ICommandControl
     {
-        public DisableCommand(params Control[] buttons) : base(buttons) { }
+        public DisableCommand(Control button) : base(button) { }
         public override void execute()
         {
-            foreach (var btn in buttons)
-            {
-                btn.Enabled = false;
-            }
+            button.Enabled = false;
         }
     }
 }

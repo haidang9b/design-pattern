@@ -1,4 +1,5 @@
-﻿using CuaHangPhanMem.Command;
+﻿using CuaHangPhanMem.Adapter;
+using CuaHangPhanMem.Command;
 using CuaHangPhanMem.DAO;
 using CuaHangPhanMem.DTO;
 using CuaHangPhanMem.Strategy;
@@ -18,30 +19,30 @@ namespace CuaHangPhanMem
     public partial class frKhachHang : Form
     {
         ActionRemoteControl remote;
-        ICommandControl enableCommandAdd, disableCommandAdd;
-        ICommandControl enableCommandRemove, disableCommandRemove;
-        ICommandControl enableCommandUpdate, disableCommandUpdate;
+
+        /*Start command enable disable*/
+        RemoteCommandControl enableCommandAdd;
+        RemoteCommandControl disableCommandAdd;
+        RemoteCommandControl enableCommandRemoveUpdate;
+        RemoteCommandControl disableCommandRemoveUpdate;
+        /*End command enable disable*/
         public frKhachHang()
         {
             InitializeComponent();
             remote = new ActionRemoteControl();
+            
             ICommandAction add = new CustomerAddCommand(this);
             ICommandAction update = new CustomerUpdateCommand(this);
             ICommandAction remove = new CustomerRemoveCommand(this);
+            
             remote.SetCommandAction((int)TypeAction.Add, add);
             remote.SetCommandAction((int)TypeAction.Remove, remove);
             remote.SetCommandAction((int)TypeAction.Update, update);
 
-            enableCommandAdd = new EnableCommand(btnThem);
-            disableCommandAdd = new DisableCommand(btnThem);
-
-            enableCommandRemove = new EnableCommand(btnXoa);
-            disableCommandRemove = new DisableCommand(btnXoa);
-
-            enableCommandUpdate = new EnableCommand(btnCapNhat);
-            disableCommandUpdate = new DisableCommand(btnCapNhat);
-
-
+            enableCommandAdd = new RemoteCommandControl(new EnableCommand(btnThem));
+            disableCommandAdd = new RemoteCommandControl(new DisableCommand(btnThem));
+            enableCommandRemoveUpdate = new RemoteCommandControl( new EnableCommand(btnXoa), new EnableCommand(btnCapNhat));
+            disableCommandRemoveUpdate = new RemoteCommandControl(new DisableCommand(btnXoa), new DisableCommand(btnCapNhat));
         }
 
         private void frKhachHang_Load(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace CuaHangPhanMem
         }
         public void LoadDataCustomer()
         {
+            /*dgvKhachHang = new CustomerCustomDataGridView();*/
             dgvKhachHang.DataSource = CustomerDAO.Instance.GetCustomers();
             dgvKhachHang.Columns[0].HeaderText = "ID";
             dgvKhachHang.Columns[1].HeaderText = "Họ và tên";
@@ -130,10 +132,8 @@ namespace CuaHangPhanMem
             txtTien.Text = "";
             txtEmail.Text = "";
 
-            enableCommandAdd.execute();
-            disableCommandRemove.execute();
-            disableCommandUpdate.execute();
-
+            enableCommandAdd.run();
+            disableCommandRemoveUpdate.run();
             /*btnThem.Enabled = true;
             btnCapNhat.Enabled = true;
             btnXoa.Enabled = false;*/
@@ -154,9 +154,8 @@ namespace CuaHangPhanMem
                 txtSdt.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtTien.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtEmail.Text = this.dgvKhachHang.Rows[e.RowIndex].Cells[5].Value.ToString();
-                disableCommandAdd.execute();
-                enableCommandRemove.execute();
-                enableCommandUpdate.execute();
+                disableCommandAdd.run();
+                enableCommandRemoveUpdate.run();
 /*                btnThem.Enabled = false;
                 btnClear.Enabled = true;
                 btnXoa.Enabled = true;
