@@ -1,4 +1,4 @@
-﻿namespace CuaHangPhanMem
+﻿namespace CuaHangPhanMem.Reports
 {
 
 

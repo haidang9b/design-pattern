@@ -130,10 +130,10 @@
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\ProductTypeDAO.cs" />
     <Compile Include="DAO\SaveDataStatic.cs" />
-    <Compile Include="DonHangDataSet.cs">
+    <Compile Include="Reports\DonHangDataSet.cs">
       <DependentUpon>DonHangDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DonHangDataSet.Designer.cs">
+    <Compile Include="Reports\DonHangDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DonHangDataSet.xsd</DependentUpon>
@@ -334,17 +334,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
     <EmbeddedResource Include="Reports\ReportBill.rdlc" />
-    <None Include="DonHangDataSet.xsc">
+    <None Include="Reports\DonHangDataSet.xsc">
       <DependentUpon>DonHangDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DonHangDataSet.xsd">
+    <None Include="Reports\DonHangDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DonHangDataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DonHangDataSet.xss">
+    <None Include="Reports\DonHangDataSet.xss">
       <DependentUpon>DonHangDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
