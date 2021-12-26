@@ -218,5 +218,10 @@ namespace CuaHangPhanMem
                 MessageBox.Show("Cập nhật khách hàng thất bại !!");
             }
         }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CuaHangPhanMem.DAO;
+﻿using CuaHangPhanMem.Command;
+using CuaHangPhanMem.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace CuaHangPhanMem
 {
     public partial class LOGIN : Form
     {
-            
+        LoginCommand commandLogin;
         public LOGIN()
         {
             InitializeComponent();
@@ -34,42 +35,17 @@ namespace CuaHangPhanMem
             {
                 SaveDataStatic.typeServer = 2;
             }
-            if (AccountDAO.Instance.LoginAdmin(tk,mk))
+
+            commandLogin = new LoginForm();
+            commandLogin.Login(tk, mk);
+            if (commandLogin.isLogin)
             {
-                Form frm = FactoryLogin.Instance.CreateLogin(LoginType.Admin, tk);
-                frm.Show();
-                this.Hide();
-            }
-            else if(AccountDAO.Instance.LoginStaff(tk, mk))
-            {
-                
-                Form banHangStaff = FactoryLogin.Instance.CreateLogin(LoginType.User, tk);
-                banHangStaff.Show();
                 this.Hide();
             }
             else
             {
-                
-                if(tk.Length == 0 && mk.Length == 0)
-                {
-                    msgError.Text = "Please enter your username and password " ;
-                    msgError.Show();
-                }
-
-                else if (tk.Length == 0) {
-                    msgError.Text = "Please enter your username";
-                    msgError.Show();
-                }
-                else if (mk.Length == 0)
-                {
-                    msgError.Text = "Please enter your password";
-                    msgError.Show();
-                }
-                else
-                {
-                    msgError.Text = "Invalid username or password";
-                    msgError.Show();
-                }
+                msgError.Text = "Invalid username or password";
+                msgError.Show();
             }
      
         }

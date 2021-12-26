@@ -31,10 +31,10 @@ namespace CuaHangPhanMem
             switch (type)
             {
                 case LoginType.Admin:
-                    return new BanHang(tk);
+                    return new BanHang();
 
                 case LoginType.User:
-                    return new BanHangStaff(tk);
+                    return new BanHangStaff();
             }
             return null;
         }

@@ -31,6 +31,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPass = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCapNhat = new FontAwesome.Sharp.IconButton();
@@ -47,7 +48,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtPass = new System.Windows.Forms.TextBox();
+            this.ssss = new System.Windows.Forms.Label();
+            this.txtFullName = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,6 +77,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ssss);
+            this.panel1.Controls.Add(this.txtFullName);
             this.panel1.Controls.Add(this.txtPass);
             this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.label5);
@@ -94,10 +98,17 @@
             this.panel1.Size = new System.Drawing.Size(1026, 241);
             this.panel1.TabIndex = 0;
             // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(352, 71);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(324, 20);
+            this.txtPass.TabIndex = 2;
+            // 
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(590, 95);
+            this.txtID.Location = new System.Drawing.Point(590, 114);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(78, 20);
             this.txtID.TabIndex = 14;
@@ -105,7 +116,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(548, 102);
+            this.label5.Location = new System.Drawing.Point(548, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 13;
@@ -118,7 +129,7 @@
             this.btnCapNhat.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnCapNhat.IconSize = 30;
             this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(372, 138);
+            this.btnCapNhat.Location = new System.Drawing.Point(372, 157);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Rotation = 0D;
             this.btnCapNhat.Size = new System.Drawing.Size(119, 33);
@@ -134,7 +145,7 @@
             this.btnClear.IconColor = System.Drawing.Color.SandyBrown;
             this.btnClear.IconSize = 30;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(661, 138);
+            this.btnClear.Location = new System.Drawing.Point(661, 157);
             this.btnClear.Name = "btnClear";
             this.btnClear.Rotation = 0D;
             this.btnClear.Size = new System.Drawing.Size(119, 33);
@@ -156,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 102);
+            this.label3.Location = new System.Drawing.Point(222, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 8;
@@ -170,7 +181,7 @@
             this.cbRole.Items.AddRange(new object[] {
             "Admin",
             "Staff"});
-            this.cbRole.Location = new System.Drawing.Point(352, 94);
+            this.cbRole.Location = new System.Drawing.Point(352, 113);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(171, 21);
             this.cbRole.TabIndex = 3;
@@ -178,7 +189,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(262, 55);
+            this.label2.Location = new System.Drawing.Point(262, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 6;
@@ -187,7 +198,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(259, 13);
+            this.label1.Location = new System.Drawing.Point(259, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 5;
@@ -200,7 +211,7 @@
             this.btnXoa.IconColor = System.Drawing.Color.Red;
             this.btnXoa.IconSize = 30;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(518, 138);
+            this.btnXoa.Location = new System.Drawing.Point(518, 157);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Rotation = 0D;
             this.btnXoa.Size = new System.Drawing.Size(119, 33);
@@ -216,7 +227,7 @@
             this.btnThem.IconColor = System.Drawing.Color.DarkSeaGreen;
             this.btnThem.IconSize = 30;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(225, 138);
+            this.btnThem.Location = new System.Drawing.Point(225, 157);
             this.btnThem.Name = "btnThem";
             this.btnThem.Rotation = 0D;
             this.btnThem.Size = new System.Drawing.Size(119, 33);
@@ -227,7 +238,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(352, 6);
+            this.txtUser.Location = new System.Drawing.Point(352, 33);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(324, 20);
             this.txtUser.TabIndex = 1;
@@ -271,12 +282,21 @@
             this.panel4.Size = new System.Drawing.Size(200, 557);
             this.panel4.TabIndex = 0;
             // 
-            // txtPass
+            // ssss
             // 
-            this.txtPass.Location = new System.Drawing.Point(352, 52);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(324, 20);
-            this.txtPass.TabIndex = 2;
+            this.ssss.AutoSize = true;
+            this.ssss.Location = new System.Drawing.Point(259, 10);
+            this.ssss.Name = "ssss";
+            this.ssss.Size = new System.Drawing.Size(54, 13);
+            this.ssss.TabIndex = 16;
+            this.ssss.Text = "Họ và tên";
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Location = new System.Drawing.Point(352, 3);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(324, 20);
+            this.txtFullName.TabIndex = 15;
             // 
             // frmAccount
             // 
@@ -321,5 +341,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.Label ssss;
+        private System.Windows.Forms.TextBox txtFullName;
     }
 }

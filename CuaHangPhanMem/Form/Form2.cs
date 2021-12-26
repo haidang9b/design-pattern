@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CuaHangPhanMem.Command;
+using CuaHangPhanMem.DAO;
 using FontAwesome.Sharp;
 
 
@@ -18,15 +20,15 @@ namespace CuaHangPhanMem
         private Panel leftPanel;
         private Form childFormCurrent;
         public string nameStaff;
-        public BanHang(string name)
+        public BanHang()
         {
             InitializeComponent();
             leftPanel = new Panel();
             leftPanel.Size = new Size(8, 60);
             panelMenu.Controls.Add(leftPanel);
             customDesign();
-            txtNamelogin.Text = name;
-            nameStaff = name;
+            txtNamelogin.Text = SaveDataStatic.login.FullName == null? "" : SaveDataStatic.login.FullName;
+            nameStaff = SaveDataStatic.login.FullName == null ? "" : SaveDataStatic.login.FullName;
         }
         private struct RGBColor
         {
@@ -237,6 +239,13 @@ namespace CuaHangPhanMem
         {
             OpenChildForm(new frmNotifyEmail());
             labelBar.Text = "Khách hàng > Khách hàng thân thiết";
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            LoginCommand command = new LoginForm();
+            command.Logout();
+            this.Hide();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CuaHangPhanMem.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ namespace CuaHangPhanMem.DAO
 
         public static string email = "dromvvvvxvxvx@gmail.com";
         public static string pass_email = "cu4h4ngfanm3m@bc";
+        public static Account login = null; 
     }
 }

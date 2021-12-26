@@ -26,24 +26,22 @@ namespace CuaHangPhanMem.DAO
         {
 
         }
-        public bool LoginAdmin(string user,string pass)
+        public Account GetAccountLogin(string username, string password)
         {
-
-            string query = "SELECT * FROM ACCOUNT WHERE USERNAME = @USER AND PASSWORD= @PASS AND TYPE = 0";
-            DataTable rs = DataProvider.Instance.ExecuteQuery(query, new object[]{ user, pass});
-            return rs.Rows.Count==1;
+            string query = "SELECT ID,USERNAME, FULLNAME,PASSWORD,TYPE FROM ACCOUNT WHERE USERNAME = @u AND PASSWORD = @p ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password});
+            if(data.Rows.Count > 0)
+            {
+                DataRow row = data.Rows[0];
+                return new Account(row);
+            }
+            return null;
         }
-
-        public bool LoginStaff(string user, string pass)
-        {
-            string query = "SELECT * FROM ACCOUNT WHERE USERNAME = @USER AND PASSWORD = @PASS AND TYPE = 1";
-            DataTable rs = DataProvider.Instance.ExecuteQuery(query, new object[] { user, pass });
-            return rs.Rows.Count == 1;
-        }
+  
         public List<Account> GetAccounts()
         {
             List<Account> list = new List<Account>();
-            string query = "SELECT ID,USERNAME,PASSWORD,TYPE FROM ACCOUNT";
+            string query = "SELECT ID,USERNAME, FULLNAME,PASSWORD,TYPE FROM ACCOUNT";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
@@ -52,18 +50,27 @@ namespace CuaHangPhanMem.DAO
             }
             return list;
         }
-        
+        public bool isExist(string username)
+        {
+            string query = "SELECT ID,USERNAME, FULLNAME,PASSWORD,TYPE FROM ACCOUNT WHERE USERNAME = @u ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+            if (data.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
         public bool Add(Account account)
         {
-            string query = "INSERT INTO ACCOUNT( USERNAME, PASSWORD, TYPE) VALUES( @username , @password , @role )";
-            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { account.Username, account.Password, account.Role });
+            string query = "INSERT INTO ACCOUNT( USERNAME, PASSWORD, TYPE, FULLNAME) VALUES( @username , @password , @role , @fullname )";
+            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { account.Username, account.Password, account.Role , account.FullName});
             return rs > 0;
         }
 
         public bool Update(Account account)
         {
-            string query = "UPDATE ACCOUNT SET PASSWORD = @pass , TYPE = @role WHERE ID= @id ";
-            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { account.Password, account.Role, account.ID});
+            string query = "UPDATE ACCOUNT SET PASSWORD = @pass , TYPE = @role , FULLNAME = @fullname WHERE ID= @id ";
+            int rs = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { account.Password, account.Role, account.FullName, account.ID});
             return rs > 0;
 
         }

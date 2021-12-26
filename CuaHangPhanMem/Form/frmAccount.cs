@@ -58,8 +58,9 @@ namespace CuaHangPhanMem
             dataGridView1.DataSource = AccountDAO.Instance.GetAccounts();
             dataGridView1.Columns[0].HeaderText = "ID";
             dataGridView1.Columns[1].HeaderText = "Tài khoản";
-            dataGridView1.Columns[2].HeaderText = "Mật khẩu";
-            dataGridView1.Columns[3].HeaderText = "Quyền";
+            dataGridView1.Columns[2].HeaderText = "Họ và tên";
+            dataGridView1.Columns[3].HeaderText = "Mật khẩu";
+            dataGridView1.Columns[4].HeaderText = "Quyền";
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -69,6 +70,7 @@ namespace CuaHangPhanMem
         public Account GetAccountTextBox()
         {
             string username = txtUser.Text;
+            string fullName = txtFullName.Text;
             string password = txtPass.Text;
             int ID = 0;
             int role = 1;
@@ -84,7 +86,7 @@ namespace CuaHangPhanMem
                 role = 1;
             }
 
-            return new Account(ID, username, password, role);
+            return new Account(ID, username, fullName, password, role);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -92,22 +94,23 @@ namespace CuaHangPhanMem
             string username = txtUser.Text;
             string password = txtPass.Text;
             string slect = cbRole.SelectedIndex.ToString();
-            
-            if(new ValidatorContext(username, ValidatorType.String).runValidation() 
+            string fullName = txtFullName.Text;
+            if (new ValidatorContext(username, ValidatorType.String).runValidation()
+                && new ValidatorContext(fullName, ValidatorType.String).runValidation()
                 && new ValidatorContext(password, ValidatorType.String).runValidation() 
                 && new ValidatorContext(slect, ValidatorType.ID).runValidation())
             {
                 int role = int.Parse(cbRole.SelectedIndex.ToString());
                 try
                 {
+                    if (AccountDAO.Instance.isExist(username))
+                    {
+                        MessageBox.Show("Có vẻ tài khoản này đã tồn tại trong hệ thống");
+                        return;
+                    }
                     if(role == 0 || role == 1)
                     {
-
                         remote.buttonWasPressed((int)TypeAction.Add);
-
-                        /*IActionTemplate template = new AddAccount();
-                        template.form = this;
-                        template.runAction();*/
                     }
                     else
                     {
@@ -132,8 +135,9 @@ namespace CuaHangPhanMem
             {
                 txtID.Text = this.dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtUser.Text = this.dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtPass.Text = this.dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
-                cbRole.SelectedIndex = int.Parse(this.dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
+                txtFullName.Text = this.dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtPass.Text = this.dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString().Trim();
+                cbRole.SelectedIndex = int.Parse(this.dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
 
                 disableCommandAddTxtUser.run();
                 enableCommandRemoveUpdate.run();
@@ -152,6 +156,7 @@ namespace CuaHangPhanMem
 
         public void clearText()
         {
+            txtFullName.Text = "";
             txtID.Text = "";
             txtPass.Text = "";
             txtUser.Text = "";
@@ -163,12 +168,13 @@ namespace CuaHangPhanMem
         }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            
+            string fullName = txtFullName.Text;
             string username = txtUser.Text;
             string password = txtPass.Text;
             string slect = cbRole.SelectedIndex.ToString();
 
             if (new ValidatorContext(username, ValidatorType.String).runValidation()
+                && new ValidatorContext(fullName, ValidatorType.String).runValidation()
                 && new ValidatorContext(password, ValidatorType.String).runValidation()
                 && new ValidatorContext(slect, ValidatorType.ID).runValidation())
             {

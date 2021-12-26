@@ -169,9 +169,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(201, 201);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(223, 25);
+            this.label9.Size = new System.Drawing.Size(291, 25);
             this.label9.TabIndex = 9;
-            this.label9.Text = "Công nghệ phần mềm";
+            this.label9.Text = "Mẫu thiết kế - Design Pattern";
             // 
             // label11
             // 
@@ -179,9 +179,9 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(201, 240);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(257, 25);
+            this.label11.Size = new System.Drawing.Size(199, 25);
             this.label11.TabIndex = 11;
-            this.label11.Text = "Thầy Nguyễn Ngọc Phiên";
+            this.label11.Text = "Thầy Vũ Đình Hồng";
             // 
             // label4
             // 

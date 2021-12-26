@@ -44,6 +44,7 @@
             this.btnBanHang = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.txtNamelogin = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -79,7 +80,7 @@
             this.btnInfoApp.IconColor = System.Drawing.Color.White;
             this.btnInfoApp.IconSize = 36;
             this.btnInfoApp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfoApp.Location = new System.Drawing.Point(0, 431);
+            this.btnInfoApp.Location = new System.Drawing.Point(0, 474);
             this.btnInfoApp.Name = "btnInfoApp";
             this.btnInfoApp.Rotation = 0D;
             this.btnInfoApp.Size = new System.Drawing.Size(220, 60);
@@ -93,7 +94,7 @@
             this.panelKhachhang.BackColor = System.Drawing.Color.DarkBlue;
             this.panelKhachhang.Controls.Add(this.button2);
             this.panelKhachhang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelKhachhang.Location = new System.Drawing.Point(0, 371);
+            this.panelKhachhang.Location = new System.Drawing.Point(0, 414);
             this.panelKhachhang.Name = "panelKhachhang";
             this.panelKhachhang.Size = new System.Drawing.Size(220, 60);
             this.panelKhachhang.TabIndex = 19;
@@ -125,7 +126,7 @@
             this.btnKhachHang.IconColor = System.Drawing.Color.White;
             this.btnKhachHang.IconSize = 36;
             this.btnKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKhachHang.Location = new System.Drawing.Point(0, 311);
+            this.btnKhachHang.Location = new System.Drawing.Point(0, 354);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.Rotation = 0D;
             this.btnKhachHang.Size = new System.Drawing.Size(220, 60);
@@ -147,7 +148,7 @@
             this.btnHome.IconColor = System.Drawing.Color.White;
             this.btnHome.IconSize = 36;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 73);
+            this.btnHome.Location = new System.Drawing.Point(0, 116);
             this.btnHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnHome.Name = "btnHome";
             this.btnHome.Rotation = 0D;
@@ -185,7 +186,7 @@
             this.panelBanHang.Controls.Add(this.btnTKDH);
             this.panelBanHang.Controls.Add(this.btnTaoDH);
             this.panelBanHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBanHang.Location = new System.Drawing.Point(0, 193);
+            this.panelBanHang.Location = new System.Drawing.Point(0, 236);
             this.panelBanHang.Name = "panelBanHang";
             this.panelBanHang.Size = new System.Drawing.Size(220, 118);
             this.panelBanHang.TabIndex = 8;
@@ -254,7 +255,7 @@
             this.btnBanHang.IconColor = System.Drawing.Color.White;
             this.btnBanHang.IconSize = 36;
             this.btnBanHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBanHang.Location = new System.Drawing.Point(0, 133);
+            this.btnBanHang.Location = new System.Drawing.Point(0, 176);
             this.btnBanHang.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.Rotation = 0D;
@@ -276,14 +277,26 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.txtNamelogin);
             this.panel1.Controls.Add(this.txtNameUser);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 73);
+            this.panel1.Size = new System.Drawing.Size(220, 116);
             this.panel1.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLogout.Location = new System.Drawing.Point(59, 90);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 0;
+            this.btnLogout.Text = "Thoát";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // txtNamelogin
             // 
@@ -366,5 +379,6 @@
         private System.Windows.Forms.Label txtNamelogin;
         private System.Windows.Forms.Label txtNameUser;
         private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

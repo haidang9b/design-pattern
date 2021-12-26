@@ -37,6 +37,7 @@
             this.btnThongKeDoanhThu = new System.Windows.Forms.Button();
             this.btnTaiChinh = new FontAwesome.Sharp.IconButton();
             this.panelKhachhang = new System.Windows.Forms.Panel();
+            this.btnOpenSendEmail = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnKhachHang = new FontAwesome.Sharp.IconButton();
             this.panelSanPham = new System.Windows.Forms.Panel();
@@ -49,6 +50,7 @@
             this.btnBanHang = new FontAwesome.Sharp.IconButton();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.txtNamelogin = new System.Windows.Forms.Label();
             this.txtNameUser = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +58,6 @@
             this.labelBar = new System.Windows.Forms.Label();
             this.iconCurrentTitle = new FontAwesome.Sharp.IconPictureBox();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.btnOpenSendEmail = new System.Windows.Forms.Button();
             lbTitleCurrent = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelTaiChinh.SuspendLayout();
@@ -113,7 +114,7 @@
             this.btnInfoApp.IconColor = System.Drawing.Color.White;
             this.btnInfoApp.IconSize = 36;
             this.btnInfoApp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfoApp.Location = new System.Drawing.Point(0, 891);
+            this.btnInfoApp.Location = new System.Drawing.Point(0, 934);
             this.btnInfoApp.Name = "btnInfoApp";
             this.btnInfoApp.Rotation = 0D;
             this.btnInfoApp.Size = new System.Drawing.Size(220, 60);
@@ -135,7 +136,7 @@
             this.btnAccount.IconColor = System.Drawing.Color.White;
             this.btnAccount.IconSize = 36;
             this.btnAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAccount.Location = new System.Drawing.Point(0, 831);
+            this.btnAccount.Location = new System.Drawing.Point(0, 874);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Rotation = 0D;
             this.btnAccount.Size = new System.Drawing.Size(220, 60);
@@ -150,7 +151,7 @@
             this.panelTaiChinh.Controls.Add(this.btnThongKePhanMem);
             this.panelTaiChinh.Controls.Add(this.btnThongKeDoanhThu);
             this.panelTaiChinh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTaiChinh.Location = new System.Drawing.Point(0, 718);
+            this.panelTaiChinh.Location = new System.Drawing.Point(0, 761);
             this.panelTaiChinh.Name = "panelTaiChinh";
             this.panelTaiChinh.Size = new System.Drawing.Size(220, 113);
             this.panelTaiChinh.TabIndex = 22;
@@ -196,7 +197,7 @@
             this.btnTaiChinh.IconColor = System.Drawing.Color.White;
             this.btnTaiChinh.IconSize = 36;
             this.btnTaiChinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTaiChinh.Location = new System.Drawing.Point(0, 658);
+            this.btnTaiChinh.Location = new System.Drawing.Point(0, 701);
             this.btnTaiChinh.Name = "btnTaiChinh";
             this.btnTaiChinh.Rotation = 0D;
             this.btnTaiChinh.Size = new System.Drawing.Size(220, 60);
@@ -211,10 +212,24 @@
             this.panelKhachhang.Controls.Add(this.btnOpenSendEmail);
             this.panelKhachhang.Controls.Add(this.button2);
             this.panelKhachhang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelKhachhang.Location = new System.Drawing.Point(0, 544);
+            this.panelKhachhang.Location = new System.Drawing.Point(0, 587);
             this.panelKhachhang.Name = "panelKhachhang";
             this.panelKhachhang.Size = new System.Drawing.Size(220, 114);
             this.panelKhachhang.TabIndex = 19;
+            // 
+            // btnOpenSendEmail
+            // 
+            this.btnOpenSendEmail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOpenSendEmail.FlatAppearance.BorderSize = 0;
+            this.btnOpenSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenSendEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenSendEmail.Location = new System.Drawing.Point(0, 50);
+            this.btnOpenSendEmail.Name = "btnOpenSendEmail";
+            this.btnOpenSendEmail.Size = new System.Drawing.Size(220, 50);
+            this.btnOpenSendEmail.TabIndex = 1;
+            this.btnOpenSendEmail.Text = "Gửi thông báo khách hàng";
+            this.btnOpenSendEmail.UseVisualStyleBackColor = true;
+            this.btnOpenSendEmail.Click += new System.EventHandler(this.btnOpenSendEmail_Click);
             // 
             // button2
             // 
@@ -243,7 +258,7 @@
             this.btnKhachHang.IconColor = System.Drawing.Color.White;
             this.btnKhachHang.IconSize = 36;
             this.btnKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKhachHang.Location = new System.Drawing.Point(0, 484);
+            this.btnKhachHang.Location = new System.Drawing.Point(0, 527);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.Rotation = 0D;
             this.btnKhachHang.Size = new System.Drawing.Size(220, 60);
@@ -258,7 +273,7 @@
             this.panelSanPham.Controls.Add(this.button3);
             this.panelSanPham.Controls.Add(this.btnLoaiSP);
             this.panelSanPham.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSanPham.Location = new System.Drawing.Point(0, 371);
+            this.panelSanPham.Location = new System.Drawing.Point(0, 414);
             this.panelSanPham.Name = "panelSanPham";
             this.panelSanPham.Size = new System.Drawing.Size(220, 113);
             this.panelSanPham.TabIndex = 16;
@@ -304,7 +319,7 @@
             this.btnSanPham.IconColor = System.Drawing.Color.White;
             this.btnSanPham.IconSize = 36;
             this.btnSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSanPham.Location = new System.Drawing.Point(0, 311);
+            this.btnSanPham.Location = new System.Drawing.Point(0, 354);
             this.btnSanPham.Name = "btnSanPham";
             this.btnSanPham.Rotation = 0D;
             this.btnSanPham.Size = new System.Drawing.Size(220, 60);
@@ -319,7 +334,7 @@
             this.panelBanHang.Controls.Add(this.btnTKDH);
             this.panelBanHang.Controls.Add(this.btnTaoDH);
             this.panelBanHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBanHang.Location = new System.Drawing.Point(0, 193);
+            this.panelBanHang.Location = new System.Drawing.Point(0, 236);
             this.panelBanHang.Name = "panelBanHang";
             this.panelBanHang.Size = new System.Drawing.Size(220, 118);
             this.panelBanHang.TabIndex = 8;
@@ -365,7 +380,7 @@
             this.btnBanHang.IconColor = System.Drawing.Color.White;
             this.btnBanHang.IconSize = 36;
             this.btnBanHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBanHang.Location = new System.Drawing.Point(0, 133);
+            this.btnBanHang.Location = new System.Drawing.Point(0, 176);
             this.btnBanHang.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
             this.btnBanHang.Name = "btnBanHang";
             this.btnBanHang.Rotation = 0D;
@@ -388,7 +403,7 @@
             this.btnHome.IconColor = System.Drawing.Color.White;
             this.btnHome.IconSize = 36;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 73);
+            this.btnHome.Location = new System.Drawing.Point(0, 116);
             this.btnHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnHome.Name = "btnHome";
             this.btnHome.Rotation = 0D;
@@ -400,14 +415,26 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.txtNamelogin);
             this.panel1.Controls.Add(this.txtNameUser);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 73);
+            this.panel1.Size = new System.Drawing.Size(220, 116);
             this.panel1.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLogout.Location = new System.Drawing.Point(59, 90);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Thoát";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // txtNamelogin
             // 
@@ -483,20 +510,6 @@
             this.panelContent.Size = new System.Drawing.Size(1044, 903);
             this.panelContent.TabIndex = 4;
             // 
-            // btnOpenSendEmail
-            // 
-            this.btnOpenSendEmail.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOpenSendEmail.FlatAppearance.BorderSize = 0;
-            this.btnOpenSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenSendEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenSendEmail.Location = new System.Drawing.Point(0, 50);
-            this.btnOpenSendEmail.Name = "btnOpenSendEmail";
-            this.btnOpenSendEmail.Size = new System.Drawing.Size(220, 50);
-            this.btnOpenSendEmail.TabIndex = 1;
-            this.btnOpenSendEmail.Text = "Gửi thông báo khách hàng";
-            this.btnOpenSendEmail.UseVisualStyleBackColor = true;
-            this.btnOpenSendEmail.Click += new System.EventHandler(this.btnOpenSendEmail_Click);
-            // 
             // BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,5 +569,6 @@
         private System.Windows.Forms.Button btnTKDH;
         private FontAwesome.Sharp.IconButton btnInfoApp;
         private System.Windows.Forms.Button btnOpenSendEmail;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
