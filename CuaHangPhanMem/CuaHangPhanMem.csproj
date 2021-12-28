@@ -36,6 +36,9 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="DarrenLee.Translator">
+      <HintPath>C:\Users\Drom\Downloads\DarrenLee.Translator.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.14.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.14.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -101,6 +104,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -123,6 +128,11 @@
     <Compile Include="Command\CommandAction.cs" />
     <Compile Include="Command\CommandButton.cs" />
     <Compile Include="Command\CommandLogin.cs" />
+    <Compile Include="Connected Services\TranslatorService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
@@ -130,6 +140,10 @@
     <Compile Include="DAO\ProductDAO.cs" />
     <Compile Include="DAO\ProductTypeDAO.cs" />
     <Compile Include="DAO\SaveDataStatic.cs" />
+    <Compile Include="Decorator\DefaultLanguage.cs" />
+    <Compile Include="Decorator\EnglishComdiment.cs" />
+    <Compile Include="Decorator\LanguagesComdiment.cs" />
+    <Compile Include="Decorator\LanguagesDecorator.cs" />
     <Compile Include="Reports\DonHangDataSet.cs">
       <DependentUpon>DonHangDataSet.xsd</DependentUpon>
     </Compile>
@@ -335,6 +349,18 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\ReportBill.rdlc" />
+    <None Include="Connected Services\TranslatorService\soap.wsdl" />
+    <None Include="Connected Services\TranslatorService\soap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TranslatorService\soap1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TranslatorService\soap2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TranslatorService\SoapService.wsdl" />
+    <None Include="Connected Services\TranslatorService\SoapService1.wsdl" />
     <None Include="Reports\DonHangDataSet.xsc">
       <DependentUpon>DonHangDataSet.xsd</DependentUpon>
     </None>
@@ -366,8 +392,16 @@
   <ItemGroup>
     <None Include="Resources\Login_background.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TranslatorService\configuration91.svcinfo" />
+    <None Include="Connected Services\TranslatorService\configuration.svcinfo" />
+    <None Include="Connected Services\TranslatorService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -381,6 +415,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\TranslatorService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

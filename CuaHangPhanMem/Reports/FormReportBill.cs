@@ -31,6 +31,7 @@ namespace CuaHangPhanMem
             string exeFolder = Application.StartupPath;
             string reportPath = Path.Combine(exeFolder, @"D:\Java\Design Pattern\CuoiKi\new\design-pattern\CuaHangPhanMem\Reports\Report1.rdlc");
             reportViewer1.LocalReport.ReportPath = @"D:\Java\Design Pattern\CuoiKi\new\design-pattern\CuaHangPhanMem\Reports\ReportBill.rdlc";
+
             string query = "SELECT TENSP as 'TenSP', SANPHAM.MASP as 'MaSP', SL as 'SoLuong', DONGIA 'DonGia' , (DONGIA*SL) AS 'ThanhTien'  FROM SANPHAM INNER JOIN CHITIETHOADON ON CHITIETHOADON.MASP = SANPHAM.MASP WHERE CHITIETHOADON.MAHD = @MAHD ";
             DataTable dtHoaDon = DataProvider.Instance.ExecuteQuery(query, new object[] {idBill });
             

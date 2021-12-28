@@ -1,4 +1,5 @@
 ﻿using CuaHangPhanMem.DAO;
+using CuaHangPhanMem.Decorator;
 using CuaHangPhanMem.DTO;
 using CuaHangPhanMem.Observer;
 using CuaHangPhanMem.Strategy;
@@ -45,28 +46,47 @@ namespace CuaHangPhanMem
         {
             try
             {
-                if(new ValidatorContext(txtTitle.Text, ValidatorType.String).runValidation() 
+                if (new ValidatorContext(txtTitle.Text, ValidatorType.String).runValidation()
                     && new ValidatorContext(txtContent.Text, ValidatorType.String).runValidation())
                 {
                     EmailData data = new EmailData();
-                    data.content = txtContent.Text;
+                    LanguagesDecorator vietnamese = new DefaultLanguage();
+
+
+                    if (English.Checked)
+                    {
+                        vietnamese = new EnglishComdiment(vietnamese);
+
+                    }
+
+                    string[] dataEmail = vietnamese.Generate(txtTitle.Text, txtContent.Text);
+                    data.title = dataEmail[0];
+                    data.content = dataEmail[1];
                     data.attach = txtDinhKem.Text;
-                    data.title = txtTitle.Text;
+                    MessageBox.Show(data.title + " -- " + data.content);
+
+
+
+
+                    //EmailData data = new EmailData();
+                    //data.content = txtContent.Text;
+                    //data.attach = txtDinhKem.Text;
+                    //data.title = txtTitle.Text;
                     Thread th = new Thread(() =>
                     {
                         List<Customer> customers = CustomerDAO.Instance.GetCustomers();
                         var service = new MailerService();
 
-                        foreach(var c in customers)
+                        foreach (var c in customers)
                         {
-                            if(new ValidatorContext(c.Email, ValidatorType.Email).runValidation()
+                            if (new ValidatorContext(c.Email, ValidatorType.Email).runValidation()
                             && c.Email.Contains("@gmail.com"))
                             {
                                 service.AddObserver(c);
                             }
-                                
+
                         }
-                       
+
 
                         service.SetEmailData(data);
                     });

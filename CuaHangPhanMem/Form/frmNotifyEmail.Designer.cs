@@ -41,6 +41,7 @@ namespace CuaHangPhanMem
             this.txtDinhKem = new System.Windows.Forms.TextBox();
             this.btnAttach = new System.Windows.Forms.Button();
             this.openFileDialogEmail = new System.Windows.Forms.OpenFileDialog();
+            this.English = new System.Windows.Forms.CheckBox();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,11 +168,23 @@ namespace CuaHangPhanMem
             this.openFileDialogEmail.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif;" +
     " *.png";
             // 
+            // English
+            // 
+            this.English.AutoSize = true;
+            this.English.Location = new System.Drawing.Point(834, 142);
+            this.English.Margin = new System.Windows.Forms.Padding(2);
+            this.English.Name = "English";
+            this.English.Size = new System.Drawing.Size(117, 17);
+            this.English.TabIndex = 42;
+            this.English.Text = "Gửi kèm Tiếng Anh";
+            this.English.UseVisualStyleBackColor = true;
+            // 
             // frmNotifyEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 706);
+            this.Controls.Add(this.English);
             this.Controls.Add(this.btnAttach);
             this.Controls.Add(this.txtDinhKem);
             this.Controls.Add(this.label3);
@@ -205,5 +218,6 @@ namespace CuaHangPhanMem
         private System.Windows.Forms.TextBox txtDinhKem;
         private System.Windows.Forms.Button btnAttach;
         private System.Windows.Forms.OpenFileDialog openFileDialogEmail;
+        private System.Windows.Forms.CheckBox English;
     }
 }

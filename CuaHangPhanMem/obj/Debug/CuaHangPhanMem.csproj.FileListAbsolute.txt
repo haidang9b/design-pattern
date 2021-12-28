@@ -415,3 +415,4 @@ D:\Java\Design Pattern\CuoiKi\new\design-pattern\CuaHangPhanMem\obj\Debug\CuaHan
 D:\Java\Design Pattern\CuoiKi\new\design-pattern\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.pdb
 D:\Java\Design Pattern\CuoiKi\new\design-pattern\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.FormReportBill.resources
 D:\Java\Design Pattern\CuoiKi\new\design-pattern\CuaHangPhanMem\obj\Debug\CuaHangPhanMem.csproj.AssemblyReference.cache
+D:\Java\Design Pattern\CuoiKi\new\design-pattern\CuaHangPhanMem\bin\Debug\DarrenLee.Translator.dll
