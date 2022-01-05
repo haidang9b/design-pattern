@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2021 at 04:41 AM
+-- Generation Time: Dec 11, 2021 at 10:25 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -33,17 +33,16 @@ CREATE TABLE `account` (
   `ID` int(11) NOT NULL,
   `USERNAME` char(50) NOT NULL,
   `PASSWORD` char(200) DEFAULT NULL,
-  `TYPE` int(11) NOT NULL DEFAULT 0,
-  `FULLNAME` varchar(100) CHARACTER SET utf8 DEFAULT NULL
+  `TYPE` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`ID`, `USERNAME`, `PASSWORD`, `TYPE`, `FULLNAME`) VALUES
-(1, 'admin', '123456', 0, 'Quản lý 1'),
-(5, 'user1', '1234', 1, 'Người dùng 1');
+INSERT INTO `account` (`ID`, `USERNAME`, `PASSWORD`, `TYPE`) VALUES
+(1, 'admin', '123456', 0),
+(5, 'user1', '1234', 1);
 
 -- --------------------------------------------------------
 
@@ -83,11 +82,7 @@ INSERT INTO `chitiethoadon` (`ID`, `MAHD`, `MASP`, `SL`) VALUES
 (4, 3, 5, 2),
 (5, 4, 5, 4),
 (6, 4, 3, 4),
-(7, 5, 5, 2),
-(8, 6, 3, 4),
-(9, 6, 5, 8),
-(10, 6, 2, 4),
-(11, 7, 2, 1);
+(7, 5, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -109,13 +104,11 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MAHD`, `MAKH`, `NVBAN`, `TGMUA`, `TONGTIEN`, `STATUS`) VALUES
-(1, 1, 'Quản lý 1', '2021-12-03', 4444, 1),
-(2, 2, 'Quản lý 1', '2021-12-03', 88915632, 1),
-(3, 1, 'Quản lý 1', '2021-12-03', 4444, 1),
-(4, 3, 'Quản lý 1', '2021-12-03', 22224242, 1),
-(5, 1, 'Quản lý 1', '2021-12-08', 4444, 1),
-(6, 2, 'Quản lý 1', '2021-12-26', 88915632, 1),
-(7, 3, 'Quản lý 1', '2021-12-27', 22224242, 1);
+(1, 1, 'admin', '2021-12-03', 4444, 1),
+(2, 2, 'admin', '2021-12-03', 13332, 1),
+(3, 1, 'admin', '2021-12-03', 4444, 1),
+(4, 3, 'admin', '2021-12-03', 9776, 1),
+(5, 1, 'admin', '2021-12-08', 4444, 1);
 
 -- --------------------------------------------------------
 
@@ -138,8 +131,8 @@ CREATE TABLE `khachhang` (
 
 INSERT INTO `khachhang` (`MAKH`, `TENKH`, `SDTKH`, `DIACHI`, `TONGTIEN`, `email`) VALUES
 (1, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 11310, 'linhhaiyen1182@gmail.com '),
-(2, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 88928964, 'cunkul35@gmail.com'),
-(3, 'TOnny Đăng', '0326555555', 'aaaaa', 22234018, NULL);
+(2, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 13332, 'cunkul35@gmail.com'),
+(3, 'TOnny Đăng', '0326555555', 'aaaaa', 9776, NULL);
 
 -- --------------------------------------------------------
 
@@ -180,10 +173,10 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`MASP`, `TENSP`, `LOAISP`, `SOLUONGTON`, `DONGIA`) VALUES
-(1, 'Sản phẩm 1222', 3, 999, 999999),
-(2, 'Sản phẩm 1', 2, 23223227, 22224242),
-(3, 'Sản phẩm 1222', 2, 217, 222),
-(5, 'assddd', 2, 99991, 2222);
+(1, 'Sản phẩm 1222', 2, -10, 200),
+(2, 'Sản phẩm 1', 2, 23223232, 22224242),
+(3, 'Sản phẩm 1222', 2, 221, 222),
+(5, 'assddd', 1, 0, 2222);
 
 -- --------------------------------------------------------
 
@@ -275,13 +268,13 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `khachhang`
