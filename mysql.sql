@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 11, 2021 at 10:25 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th1 05, 2022 lúc 05:13 PM
+-- Phiên bản máy phục vụ: 10.4.21-MariaDB
+-- Phiên bản PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `quanlycuahang`
+-- Cơ sở dữ liệu: `quanlycuahang`
 --
 CREATE DATABASE IF NOT EXISTS `quanlycuahang` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `quanlycuahang`;
@@ -26,28 +26,29 @@ USE `quanlycuahang`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Cấu trúc bảng cho bảng `account`
 --
 
 CREATE TABLE `account` (
   `ID` int(11) NOT NULL,
   `USERNAME` char(50) NOT NULL,
   `PASSWORD` char(200) DEFAULT NULL,
-  `TYPE` int(11) NOT NULL DEFAULT 0
+  `TYPE` int(11) NOT NULL DEFAULT 0,
+  `FULLNAME` varchar(100) CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `account`
+-- Đang đổ dữ liệu cho bảng `account`
 --
 
-INSERT INTO `account` (`ID`, `USERNAME`, `PASSWORD`, `TYPE`) VALUES
-(1, 'admin', '123456', 0),
-(5, 'user1', '1234', 1);
+INSERT INTO `account` (`ID`, `USERNAME`, `PASSWORD`, `TYPE`, `FULLNAME`) VALUES
+(1, 'admin', '123456', 0, 'Quản lý 1'),
+(5, 'user1', '1234', 1, 'Người dùng 1');
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `billview`
+-- Cấu trúc đóng vai cho view `billview`
 -- (See below for the actual view)
 --
 CREATE TABLE `billview` (
@@ -61,7 +62,7 @@ CREATE TABLE `billview` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chitiethoadon`
+-- Cấu trúc bảng cho bảng `chitiethoadon`
 --
 
 CREATE TABLE `chitiethoadon` (
@@ -72,7 +73,7 @@ CREATE TABLE `chitiethoadon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `chitiethoadon`
+-- Đang đổ dữ liệu cho bảng `chitiethoadon`
 --
 
 INSERT INTO `chitiethoadon` (`ID`, `MAHD`, `MASP`, `SL`) VALUES
@@ -82,12 +83,16 @@ INSERT INTO `chitiethoadon` (`ID`, `MAHD`, `MASP`, `SL`) VALUES
 (4, 3, 5, 2),
 (5, 4, 5, 4),
 (6, 4, 3, 4),
-(7, 5, 5, 2);
+(7, 5, 5, 2),
+(8, 6, 3, 4),
+(9, 6, 5, 8),
+(10, 6, 2, 4),
+(11, 7, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hoadon`
+-- Cấu trúc bảng cho bảng `hoadon`
 --
 
 CREATE TABLE `hoadon` (
@@ -100,20 +105,22 @@ CREATE TABLE `hoadon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `hoadon`
+-- Đang đổ dữ liệu cho bảng `hoadon`
 --
 
 INSERT INTO `hoadon` (`MAHD`, `MAKH`, `NVBAN`, `TGMUA`, `TONGTIEN`, `STATUS`) VALUES
 (1, 1, 'admin', '2021-12-03', 4444, 1),
-(2, 2, 'admin', '2021-12-03', 13332, 1),
+(2, 2, 'admin', '2021-12-03', 88915632, 1),
 (3, 1, 'admin', '2021-12-03', 4444, 1),
-(4, 3, 'admin', '2021-12-03', 9776, 1),
-(5, 1, 'admin', '2021-12-08', 4444, 1);
+(4, 3, 'admin', '2021-12-03', 22224242, 1),
+(5, 1, 'admin', '2021-12-08', 4444, 1),
+(6, 2, 'Quản lý 1', '2021-12-26', 88915632, 1),
+(7, 3, 'Quản lý 1', '2021-12-27', 22224242, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `khachhang`
+-- Cấu trúc bảng cho bảng `khachhang`
 --
 
 CREATE TABLE `khachhang` (
@@ -126,18 +133,18 @@ CREATE TABLE `khachhang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `khachhang`
+-- Đang đổ dữ liệu cho bảng `khachhang`
 --
 
 INSERT INTO `khachhang` (`MAKH`, `TENKH`, `SDTKH`, `DIACHI`, `TONGTIEN`, `email`) VALUES
 (1, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 11310, 'linhhaiyen1182@gmail.com '),
-(2, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 13332, 'cunkul35@gmail.com'),
-(3, 'TOnny Đăng', '0326555555', 'aaaaa', 9776, NULL);
+(2, 'Tôny Hải Đăng', '0326889240', 'Quân 7', 88928964, 'cunkul35@gmail.com'),
+(3, 'TOnny Đăng', '0326555555', 'aaaaa', 22234018, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaisp`
+-- Cấu trúc bảng cho bảng `loaisp`
 --
 
 CREATE TABLE `loaisp` (
@@ -146,7 +153,7 @@ CREATE TABLE `loaisp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `loaisp`
+-- Đang đổ dữ liệu cho bảng `loaisp`
 --
 
 INSERT INTO `loaisp` (`MALOAI`, `TENLOAI`) VALUES
@@ -157,7 +164,7 @@ INSERT INTO `loaisp` (`MALOAI`, `TENLOAI`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham`
+-- Cấu trúc bảng cho bảng `sanpham`
 --
 
 CREATE TABLE `sanpham` (
@@ -169,19 +176,19 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sanpham`
+-- Đang đổ dữ liệu cho bảng `sanpham`
 --
 
 INSERT INTO `sanpham` (`MASP`, `TENSP`, `LOAISP`, `SOLUONGTON`, `DONGIA`) VALUES
-(1, 'Sản phẩm 1222', 2, -10, 200),
-(2, 'Sản phẩm 1', 2, 23223232, 22224242),
-(3, 'Sản phẩm 1222', 2, 221, 222),
-(5, 'assddd', 1, 0, 2222);
+(1, 'Sản phẩm 1222', 3, 999, 999999),
+(2, 'Sản phẩm 1', 2, 23223227, 22224242),
+(3, 'Sản phẩm 1222', 2, 217, 222),
+(5, 'assddd', 2, 99991, 2222);
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `viewbillinfo`
+-- Cấu trúc đóng vai cho view `viewbillinfo`
 -- (See below for the actual view)
 --
 CREATE TABLE `viewbillinfo` (
@@ -194,7 +201,7 @@ CREATE TABLE `viewbillinfo` (
 -- --------------------------------------------------------
 
 --
--- Structure for view `billview`
+-- Cấu trúc cho view `billview`
 --
 DROP TABLE IF EXISTS `billview`;
 
@@ -203,24 +210,24 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `viewbillinfo`
+-- Cấu trúc cho view `viewbillinfo`
 --
 DROP TABLE IF EXISTS `viewbillinfo`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewbillinfo`  AS SELECT `sanpham`.`TENSP` AS `TENSP`, `ct`.`SL` AS `SL`, `sanpham`.`DONGIA` AS `DONGIA`, cast(`sanpham`.`DONGIA` * `ct`.`SL` as signed) AS `TONGGIA` FROM (((`chitiethoadon` `ct` join `sanpham` on(`sanpham`.`MASP` = `ct`.`MASP`)) join `hoadon` on(`hoadon`.`MAHD` = `ct`.`MAHD`)) join `khachhang` on(`hoadon`.`MAKH` = `khachhang`.`MAKH`)) ;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `account`
+-- Chỉ mục cho bảng `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `chitiethoadon`
+-- Chỉ mục cho bảng `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
   ADD PRIMARY KEY (`ID`),
@@ -228,91 +235,91 @@ ALTER TABLE `chitiethoadon`
   ADD KEY `MASP` (`MASP`);
 
 --
--- Indexes for table `hoadon`
+-- Chỉ mục cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MAHD`),
   ADD KEY `MAKH` (`MAKH`);
 
 --
--- Indexes for table `khachhang`
+-- Chỉ mục cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`MAKH`);
 
 --
--- Indexes for table `loaisp`
+-- Chỉ mục cho bảng `loaisp`
 --
 ALTER TABLE `loaisp`
   ADD PRIMARY KEY (`MALOAI`),
   ADD UNIQUE KEY `MALOAI` (`MALOAI`);
 
 --
--- Indexes for table `sanpham`
+-- Chỉ mục cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD PRIMARY KEY (`MASP`),
   ADD KEY `LOAISP` (`LOAISP`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `account`
+-- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `chitiethoadon`
+-- AUTO_INCREMENT cho bảng `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `hoadon`
+-- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MAHD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `khachhang`
+-- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
   MODIFY `MAKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `loaisp`
+-- AUTO_INCREMENT cho bảng `loaisp`
 --
 ALTER TABLE `loaisp`
   MODIFY `MALOAI` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `sanpham`
+-- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   MODIFY `MASP` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `chitiethoadon`
+-- Các ràng buộc cho bảng `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
   ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`MAHD`) REFERENCES `hoadon` (`MAHD`),
   ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`MASP`) REFERENCES `sanpham` (`MASP`);
 
 --
--- Constraints for table `hoadon`
+-- Các ràng buộc cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MAKH`) REFERENCES `khachhang` (`MAKH`);
 
 --
--- Constraints for table `sanpham`
+-- Các ràng buộc cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
   ADD CONSTRAINT `sanpham_ibfk_1` FOREIGN KEY (`LOAISP`) REFERENCES `loaisp` (`MALOAI`);
