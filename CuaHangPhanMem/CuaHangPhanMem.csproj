@@ -144,6 +144,8 @@
     <Compile Include="Decorator\EnglishComdiment.cs" />
     <Compile Include="Decorator\LanguagesComdiment.cs" />
     <Compile Include="Decorator\LanguagesDecorator.cs" />
+    <Compile Include="Mememto\Caretaker.cs" />
+    <Compile Include="Mememto\Originator.cs" />
     <Compile Include="Reports\DonHangDataSet.cs">
       <DependentUpon>DonHangDataSet.xsd</DependentUpon>
     </Compile>
@@ -419,5 +421,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\TranslatorService\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

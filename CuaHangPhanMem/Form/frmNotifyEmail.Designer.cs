@@ -42,6 +42,9 @@ namespace CuaHangPhanMem
             this.btnAttach = new System.Windows.Forms.Button();
             this.openFileDialogEmail = new System.Windows.Forms.OpenFileDialog();
             this.English = new System.Windows.Forms.CheckBox();
+            this.btnSave = new FontAwesome.Sharp.IconButton();
+            this.btnUndo = new FontAwesome.Sharp.IconButton();
+            this.btnRedo = new FontAwesome.Sharp.IconButton();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +61,7 @@ namespace CuaHangPhanMem
             this.txtContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContent.Location = new System.Drawing.Point(165, 185);
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(628, 355);
+            this.txtContent.Size = new System.Drawing.Size(628, 407);
             this.txtContent.TabIndex = 1;
             this.txtContent.Text = "";
             // 
@@ -88,7 +91,7 @@ namespace CuaHangPhanMem
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1011, 72);
+            this.panel9.Size = new System.Drawing.Size(1351, 72);
             this.panel9.TabIndex = 20;
             // 
             // label6
@@ -124,7 +127,7 @@ namespace CuaHangPhanMem
             this.btnClear.IconColor = System.Drawing.Color.SandyBrown;
             this.btnClear.IconSize = 30;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(834, 290);
+            this.btnClear.Location = new System.Drawing.Point(834, 260);
             this.btnClear.Name = "btnClear";
             this.btnClear.Rotation = 0D;
             this.btnClear.Size = new System.Drawing.Size(140, 59);
@@ -137,7 +140,7 @@ namespace CuaHangPhanMem
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 601);
+            this.label3.Location = new System.Drawing.Point(43, 623);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 24);
             this.label3.TabIndex = 38;
@@ -146,7 +149,7 @@ namespace CuaHangPhanMem
             // txtDinhKem
             // 
             this.txtDinhKem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDinhKem.Location = new System.Drawing.Point(165, 601);
+            this.txtDinhKem.Location = new System.Drawing.Point(165, 623);
             this.txtDinhKem.Name = "txtDinhKem";
             this.txtDinhKem.ReadOnly = true;
             this.txtDinhKem.Size = new System.Drawing.Size(522, 29);
@@ -154,7 +157,7 @@ namespace CuaHangPhanMem
             // 
             // btnAttach
             // 
-            this.btnAttach.Location = new System.Drawing.Point(693, 601);
+            this.btnAttach.Location = new System.Drawing.Point(693, 623);
             this.btnAttach.Name = "btnAttach";
             this.btnAttach.Size = new System.Drawing.Size(100, 29);
             this.btnAttach.TabIndex = 40;
@@ -179,11 +182,62 @@ namespace CuaHangPhanMem
             this.English.Text = "Gửi kèm Tiếng Anh";
             this.English.UseVisualStyleBackColor = true;
             // 
+            // btnSave
+            // 
+            this.btnSave.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.btnSave.IconColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnSave.IconSize = 30;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(834, 338);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Rotation = 0D;
+            this.btnSave.Size = new System.Drawing.Size(140, 59);
+            this.btnSave.TabIndex = 43;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnUndo.IconChar = FontAwesome.Sharp.IconChar.Undo;
+            this.btnUndo.IconColor = System.Drawing.Color.SandyBrown;
+            this.btnUndo.IconSize = 30;
+            this.btnUndo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUndo.Location = new System.Drawing.Point(834, 419);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Rotation = 0D;
+            this.btnUndo.Size = new System.Drawing.Size(140, 59);
+            this.btnUndo.TabIndex = 44;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
+            // btnRedo
+            // 
+            this.btnRedo.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnRedo.IconChar = FontAwesome.Sharp.IconChar.Redo;
+            this.btnRedo.IconColor = System.Drawing.Color.SandyBrown;
+            this.btnRedo.IconSize = 30;
+            this.btnRedo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRedo.Location = new System.Drawing.Point(834, 497);
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.Rotation = 0D;
+            this.btnRedo.Size = new System.Drawing.Size(140, 59);
+            this.btnRedo.TabIndex = 45;
+            this.btnRedo.Text = "Redo";
+            this.btnRedo.UseVisualStyleBackColor = true;
+            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
+            // 
             // frmNotifyEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 706);
+            this.ClientSize = new System.Drawing.Size(1351, 706);
+            this.Controls.Add(this.btnRedo);
+            this.Controls.Add(this.btnUndo);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.English);
             this.Controls.Add(this.btnAttach);
             this.Controls.Add(this.txtDinhKem);
@@ -219,5 +273,8 @@ namespace CuaHangPhanMem
         private System.Windows.Forms.Button btnAttach;
         private System.Windows.Forms.OpenFileDialog openFileDialogEmail;
         private System.Windows.Forms.CheckBox English;
+        private FontAwesome.Sharp.IconButton btnSave;
+        private FontAwesome.Sharp.IconButton btnUndo;
+        private FontAwesome.Sharp.IconButton btnRedo;
     }
 }
